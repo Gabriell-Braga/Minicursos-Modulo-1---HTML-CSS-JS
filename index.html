@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <title>Módulo 1: Introdução e HTML5 na Prática - Versão Estendida</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -171,6 +172,36 @@
             <div class="code-content">
                 &lt;<span class="tag">meta</span> <span class="attr">charset</span>=<span class="val">"UTF-8"</span>&gt;<br>
                 &lt;<span class="tag">title</span>&gt;Meu Site&lt;/<span class="tag">title</span>&gt;
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">FAVICON: <span>ÍCONE DA ABA</span></h2>
+    <div class="content-area">
+        <p style="font-size: 19px; color: #cbd5e1; margin-top: 0; max-width: 860px;">O <strong>favicon</strong> é o pequeno símbolo que aparece na <strong>aba do navegador</strong>, nos favoritos e em alguns resultados de busca. Ajuda o usuário a reconhecer seu site entre várias abas abertas.</p>
+        <div class="two-column" style="align-items: start; gap: 28px;">
+            <div>
+                <p style="font-size: 18px;"><strong>Como ligar no HTML</strong> (dentro do <code class="code-inline">&lt;head&gt;</code>, de preferência perto do <code class="code-inline">&lt;title&gt;</code>):</p>
+                <div class="code-window">
+                    <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                    <div class="code-content code-content--compact" style="font-size: 15px;">
+                        &lt;<span class="tag">link</span> <span class="attr">rel</span>=<span class="val">"icon"</span> <span class="attr">href</span>=<span class="val">"favicon.svg"</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attr">type</span>=<span class="val">"image/svg+xml"</span>&gt;<br><br>
+                        <span class="comment">&lt;!-- PNG também funciona: href="favicon.png" type="image/png" --&gt;</span>
+                    </div>
+                </div>
+                <p style="font-size: 16px; color: #94a3b8; margin-top: 12px;">O <code class="code-inline">href</code> é o caminho até o arquivo (na mesma pasta que o HTML ou em uma subpasta, ex.: <code class="code-inline">imagens/icone.png</code>).</p>
+            </div>
+            <div>
+                <p style="font-size: 18px; margin-top: 0;"><strong>Onde conseguir um ícone</strong></p>
+                <ul style="font-size: 17px; line-height: 1.55; padding-left: 1.2rem;">
+                    <li style="margin-bottom: 8px;"><strong>SVG</strong> feito no editor (simples, escalável). Este projeto usa <code class="code-inline">favicon.svg</code> na raiz.</li>
+                    <li style="margin-bottom: 8px;"><strong>Geradores online</strong> (busque por “favicon generator”): você envia uma imagem quadrada e baixa pacotes com <code class="code-inline">.ico</code> ou vários tamanhos.</li>
+                    <li style="margin-bottom: 8px;"><strong>Ícone próprio</strong> exportado do Figma, Canva ou Illustrator em PNG quadrado (256×256 ou 512×512 é suficiente).</li>
+                    <li><strong>Cuidado:</strong> use imagens que você tem direito de usar (suas, licença livre ou ícones do projeto).</li>
+                </ul>
             </div>
         </div>
     </div>

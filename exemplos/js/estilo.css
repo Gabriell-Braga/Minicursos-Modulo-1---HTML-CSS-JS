@@ -99,6 +99,7 @@ header.perfil-hero h1 {
   border: 3px solid #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.25s, transform 0.25s;
+  object-fit: cover;
 }
 
 .perfil-foto:hover {

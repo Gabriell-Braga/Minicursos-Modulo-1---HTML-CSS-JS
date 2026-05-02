@@ -4,8 +4,13 @@
   var nextBtn = document.getElementById('next-slide');
   var counterEl = document.getElementById('slide-counter');
   var totalEl = document.getElementById('slide-total');
+  var deck = document.querySelector('.slides-deck');
   var current = 0;
   var total = slides.length;
+
+  if (!total || !prevBtn || !nextBtn || !counterEl || !totalEl) {
+    return;
+  }
 
   totalEl.textContent = String(total);
 
@@ -78,6 +83,33 @@
   window.addEventListener('hashchange', function () {
     show(parseSlideFromUrl());
   });
+
+  /* Deslizar no dedo em telas touch (apresentações) */
+  if (deck && total > 1) {
+    var touchStartX = 0;
+    var touchStartY = 0;
+    deck.addEventListener(
+      'touchstart',
+      function (e) {
+        if (!e.changedTouches || !e.changedTouches.length) return;
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+      },
+      { passive: true }
+    );
+    deck.addEventListener(
+      'touchend',
+      function (e) {
+        if (!e.changedTouches || !e.changedTouches.length) return;
+        var dx = e.changedTouches[0].screenX - touchStartX;
+        var dy = e.changedTouches[0].screenY - touchStartY;
+        if (Math.abs(dx) < 56 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+        if (dx < 0) show(current + 1);
+        else show(current - 1);
+      },
+      { passive: true }
+    );
+  }
 
   show(parseSlideFromUrl());
 })();

@@ -14,19 +14,30 @@
 <body>
 
 <header class="site-header" role="banner">
-  <div class="site-header__group">
-    <span class="site-header__label">Apresentações</span>
-    <a href="index.html" class="site-header__link"><i class="fa-brands fa-html5" aria-hidden="true"></i> Módulo 1 · HTML</a>
-    <a href="CSS.html" class="site-header__link"><i class="fa-brands fa-css3-alt" aria-hidden="true"></i> Módulo 2 · CSS</a>
-    <a href="JS.html" class="site-header__link"><i class="fa-brands fa-js" aria-hidden="true"></i> Módulo 3 · JavaScript</a>
-    <a href="GitHub-Pages.html" class="site-header__link site-header__link--current" aria-current="page"><i class="fa-brands fa-github" aria-hidden="true"></i> Módulo 4 · GitHub Pages</a>
+  <input type="checkbox" id="site-nav-toggle" class="site-header__toggle">
+  <div class="site-header__bar">
+    <label for="site-nav-toggle" class="site-header__burger">
+      <span class="visually-hidden">Abrir ou fechar menu de navegação</span>
+      <i class="fa-solid fa-bars site-header__burger-open" aria-hidden="true"></i>
+      <i class="fa-solid fa-xmark site-header__burger-close" aria-hidden="true"></i>
+    </label>
   </div>
-  <div class="site-header__group">
-    <span class="site-header__label">Exemplos</span>
-    <a href="exemplos/html/index.html" class="site-header__link"><i class="fa-solid fa-user" aria-hidden="true"></i> Perfil (HTML)</a>
-    <a href="exemplos/css/index.html" class="site-header__link"><i class="fa-solid fa-paintbrush" aria-hidden="true"></i> Perfil + CSS</a>
-    <a href="exemplos/js/index.html" class="site-header__link"><i class="fa-brands fa-js" aria-hidden="true"></i> Perfil + JS</a>
-  </div>
+  <nav class="site-header__panel" id="site-header-panel" aria-label="Navegação do curso">
+    <div class="site-header__group">
+      <span class="site-header__label">Apresentações</span>
+      <a href="index.html" class="site-header__link"><i class="fa-brands fa-html5" aria-hidden="true"></i> Módulo 1 · HTML</a>
+      <a href="CSS.html" class="site-header__link"><i class="fa-brands fa-css3-alt" aria-hidden="true"></i> Módulo 2 · CSS</a>
+      <a href="JS.html" class="site-header__link"><i class="fa-brands fa-js" aria-hidden="true"></i> Módulo 3 · JavaScript</a>
+      <a href="GitHub-Pages.html" class="site-header__link site-header__link--current" aria-current="page"><i class="fa-brands fa-github" aria-hidden="true"></i> Módulo 4 · GitHub Pages</a>
+    </div>
+    <div class="site-header__group">
+      <span class="site-header__label">Exemplos</span>
+      <a href="exemplos/html/index.html" class="site-header__link"><i class="fa-solid fa-user" aria-hidden="true"></i> Perfil (HTML)</a>
+      <a href="exemplos/css/index.html" class="site-header__link"><i class="fa-solid fa-paintbrush" aria-hidden="true"></i> Perfil + CSS</a>
+      <a href="exemplos/js/index.html" class="site-header__link"><i class="fa-brands fa-js" aria-hidden="true"></i> Perfil + JS</a>
+    </div>
+  </nav>
+  <label for="site-nav-toggle" class="site-header__backdrop"><span class="visually-hidden">Fechar menu</span></label>
 </header>
 
 <nav class="slide-controls" aria-label="Navegação da apresentação">

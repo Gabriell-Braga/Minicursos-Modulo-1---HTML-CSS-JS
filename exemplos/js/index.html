@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helena Martins — exemplo (HTML + CSS + JS)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body class="page-exemplo">
+
+<header class="site-header" role="banner">
+  <div class="site-header__group">
+    <span class="site-header__label">Apresentações</span>
+    <a href="../../index.html" class="site-header__link"><i class="fa-brands fa-html5" aria-hidden="true"></i> Módulo 1 · HTML</a>
+    <a href="../../CSS.html" class="site-header__link"><i class="fa-brands fa-css3-alt" aria-hidden="true"></i> Módulo 2 · CSS</a>
+    <a href="../../JS.html" class="site-header__link"><i class="fa-brands fa-js" aria-hidden="true"></i> Módulo 3 · JavaScript</a>
+    <a href="../../GitHub-Pages.html" class="site-header__link"><i class="fa-brands fa-github" aria-hidden="true"></i> Módulo 4 · GitHub Pages</a>
+  </div>
+  <div class="site-header__group">
+    <span class="site-header__label">Exemplos</span>
+    <a href="../html/index.html" class="site-header__link"><i class="fa-solid fa-user" aria-hidden="true"></i> Perfil (HTML)</a>
+    <a href="../css/index.html" class="site-header__link"><i class="fa-solid fa-paintbrush" aria-hidden="true"></i> Perfil + CSS</a>
+    <a href="index.html" class="site-header__link site-header__link--current" aria-current="page"><i class="fa-brands fa-js" aria-hidden="true"></i> Perfil + JS</a>
+  </div>
+</header>
+
+<header class="perfil-hero" id="topo">
+    <h1>Helena Martins</h1>
+    <nav class="perfil-hero__nav" aria-label="Ir para seção">
+        <a href="#sobre">Sobre</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#contato">Contato</a>
+    </nav>
+</header>
+
+<main class="perfil-main">
+    <section class="cartao" id="sobre">
+        <h2>Sobre mim</h2>
+        <p>Sou estudante de desenvolvimento web em Porto Alegre. Estou montando meu portfólio e aprendendo HTML, CSS e acessibilidade.</p>
+        <img class="perfil-foto" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80" alt="Foto de Helena Martins" width="200" height="200">
+    </section>
+
+    <section class="cartao" id="habilidades">
+        <h2>Habilidades</h2>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>Git e linha de comando</li>
+        </ul>
+    </section>
+</main>
+
+<footer class="perfil-rodape" id="contato">
+    <h2>Contato</h2>
+    <table>
+        <caption>Onde me encontrar</caption>
+        <thead>
+            <tr>
+                <th scope="col">Rede</th>
+                <th scope="col">Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GitHub</td>
+                <td><a href="https://github.com/helena-martins-exemplo" target="_blank" rel="noopener noreferrer">github.com/helena-martins-exemplo</a></td>
+            </tr>
+            <tr>
+                <td>E-mail</td>
+                <td><a href="mailto:helena.martins.exemplo@email.com">helena.martins.exemplo@email.com</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="perfil-rodape__extras" id="msg-visita" role="status"></p>
+    <p class="perfil-rodape__copy">&copy; <span id="rodape-ano"></span> Helena Martins — exemplo com navegação suave, ano dinâmico e mensagem via <code>sessionStorage</code>.</p>
+</footer>
+
+<button type="button" id="btn-voltar-topo" class="btn-voltar-topo" hidden aria-hidden="true" aria-label="Voltar ao topo da página">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+</button>
+
+<script src="perfil.js" defer></script>
+</body>
+</html>

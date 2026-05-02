@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 1: Introdução e HTML5 na Prática - Versão Estendida</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <div class="site-header__group">
+    <span class="site-header__label">Apresentações</span>
+    <a href="index.html" class="site-header__link site-header__link--current" aria-current="page"><i class="fa-brands fa-html5" aria-hidden="true"></i> Módulo 1 · HTML</a>
+    <a href="CSS.html" class="site-header__link"><i class="fa-brands fa-css3-alt" aria-hidden="true"></i> Módulo 2 · CSS</a>
+    <a href="JS.html" class="site-header__link"><i class="fa-brands fa-js" aria-hidden="true"></i> Módulo 3 · JavaScript</a>
+    <a href="GitHub-Pages.html" class="site-header__link"><i class="fa-brands fa-github" aria-hidden="true"></i> Módulo 4 · GitHub Pages</a>
+  </div>
+  <div class="site-header__group">
+    <span class="site-header__label">Exemplos</span>
+    <a href="exemplos/html/index.html" class="site-header__link"><i class="fa-solid fa-user" aria-hidden="true"></i> Perfil (HTML)</a>
+    <a href="exemplos/css/index.html" class="site-header__link"><i class="fa-solid fa-paintbrush" aria-hidden="true"></i> Perfil + CSS</a>
+    <a href="exemplos/js/index.html" class="site-header__link"><i class="fa-brands fa-js" aria-hidden="true"></i> Perfil + JS</a>
+  </div>
+</header>
+
+<nav class="slide-controls" aria-label="Navegação da apresentação">
+  <button type="button" id="prev-slide" aria-label="Slide anterior"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+  <span id="slide-counter" aria-live="polite"><span class="current">1</span> / <span id="slide-total">—</span></span>
+  <button type="button" id="next-slide" aria-label="Próximo slide"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+</nav>
+
+<div class="slides-deck">
+
+<div class="slide-container is-active" style="background: linear-gradient(rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.9)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1920&q=80'); background-size: cover;">
+  <div class="content-area" style="align-items: center;">
+    <h1>MÓDULO 1:<br><span>INTRODUÇÃO E HTML5 NA PRÁTICA</span></h1>
+    <p style="font-size: 28px; color: #94a3b8; margin-top: 40px; letter-spacing: 4px; font-weight: 500;">A FUNDAÇÃO SÓLIDA DO DESENVOLVIMENTO WEB</p>
+  </div>
+</div>
+
+<div class="slide-container">
+    <div class="section-title-layout">
+        <hr>
+        <h2>O QUE FORMA A WEB?</h2>
+        <p>A união entre Estrutura, Estilo e Ação.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">ESTRUTURA, <span>ESTILO</span> E AÇÃO</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 30px;"><i class="fa-solid fa-code" style="color: #22c55e;"></i> <strong>HTML5:</strong> O Alicerce da construção.</li>
+                    <li style="margin-bottom: 30px;"><i class="fa-solid fa-palette" style="color: #38bdf8;"></i> <strong>CSS3:</strong> A aparência e design.</li>
+                    <li><i class="fa-solid fa-bolt" style="color: #eab308;"></i> <strong>JavaScript:</strong> O cérebro e interatividade.</li>
+                </ul>
+            </div>
+            <div class="image-wrapper contain">
+                <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=80" alt="Tripé Web">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">A <span>REDE</span> POR TRÁS DO CÓDIGO</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div class="image-wrapper contain">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Client Server Diagram">
+            </div>
+            <div>
+                <h3>CLIENTE VS SERVIDOR</h3>
+                <p>O navegador pede, o servidor envia.</p>
+                <p>O <strong>HTML</strong> é o pacote que viaja até você para ser interpretado.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <div class="section-title-layout">
+        <hr>
+        <h2>FERRAMENTAS DO ARTESÃO</h2>
+        <p>Configurando seu ambiente de desenvolvimento.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">INSTALAÇÃO: <span>VS CODE</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <p>Baixe em <code>code.visualstudio.com</code>.</p>
+                <p><strong>Por que VS Code?</strong></p>
+                <ul>
+                    <li>Extensões poderosas.</li>
+                    <li>Editor de texto mais usado do mundo.</li>
+                    <li>Leve e customizável.</li>
+                </ul>
+            </div>
+            <div class="image-wrapper contain">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="VS Code Interface">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">EXTENSÕES <span>INDISPENSÁVEIS</span></h2>
+    <div class="content-area">
+        <div class="tile-grid">
+            <div class="tile"><i class="fa-solid fa-server"></i><h3>LIVE SERVER</h3><p>Veja mudanças em tempo real sem dar F5.</p></div>
+            <div class="tile"><i class="fa-solid fa-wand-magic-sparkles"></i><h3>PRETTIER</h3><p>Organiza a identação do seu código.</p></div>
+            <div class="tile"><i class="fa-solid fa-language"></i><h3>BRAZILIAN PORTUGUESE</h3><p>Interface em português.</p></div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">A IMPORTÂNCIA DO <span>INDEX.HTML</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <p>Todo site deve ter um <strong>index.html</strong>.</p>
+                <p>O servidor procura por este nome para saber qual página mostrar primeiro.</p>
+            </div>
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content">index.html <span class="comment">// Página Inicial</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">O <span>ESQUELETO</span> (BOILERPLATE)</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content">
+                    &lt;!<span class="tag">DOCTYPE html</span>&gt;<br>
+                    &lt;<span class="tag">html</span> <span class="attr">lang</span>=<span class="val">"pt-br"</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;<span class="tag">head</span>&gt;...&lt;/<span class="tag">head</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;<span class="tag">body</span>&gt;...&lt;/<span class="tag">body</span>&gt;<br>
+                    &lt;/<span class="tag">html</span>&gt;
+                </div>
+            </div>
+            <div>
+                <p>Digite <code>!</code> e aperte <strong>Enter</strong> no VS Code.</p>
+                <p>Esta é a estrutura mínima obrigatória.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">DENTRO DO <span>HEAD</span></h2>
+    <div class="content-area">
+        <p>Aqui ficam os metadados (configurações) e o título da aba.</p>
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content">
+                &lt;<span class="tag">meta</span> <span class="attr">charset</span>=<span class="val">"UTF-8"</span>&gt;<br>
+                &lt;<span class="tag">title</span>&gt;Meu Site&lt;/<span class="tag">title</span>&gt;
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">BLOCOS GENÉRICOS: <span>DIV E SPAN</span></h2>
+    <div class="content-area">
+        <div class="two-column tiles-equal-height">
+            <div class="tile">
+                <i class="fa-solid fa-box"></i>
+                <h3>&lt;div&gt;</h3>
+                <p>Elemento de <strong>Bloco</strong>. Ocupa 100% da largura. Usado para criar caixas e agrupar elementos.</p>
+            </div>
+            <div class="tile">
+                <i class="fa-solid fa-highlighter"></i>
+                <h3>&lt;span&gt;</h3>
+                <p>Elemento em <strong>Linha</strong>. Ocupa apenas o espaço do texto. Usado para destacar partes de um parágrafo.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">SEMÂNTICA: <span>MAIS QUE DIVS</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <p>Pare de usar <code>div</code> para tudo! Use tags que descrevam o conteúdo:</p>
+                <ul>
+                    <li><strong>&lt;header&gt;:</strong> Cabeçalho do site.</li>
+                    <li><strong>&lt;nav&gt;:</strong> Menu de navegação.</li>
+                    <li><strong>&lt;main&gt;:</strong> Conteúdo principal único.</li>
+                    <li><strong>&lt;footer&gt;:</strong> Rodapé da página.</li>
+                </ul>
+            </div>
+            <div class="image-wrapper contain">
+                <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=800&q=80" alt="Layout Semântico">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">ORGANIZAÇÃO: <span>SECTION E ARTICLE</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content">
+                    &lt;<span class="tag">section</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;<span class="tag">h2</span>&gt;Sobre Mim&lt;/<span class="tag">h2</span>&gt;<br>
+                    &lt;/<span class="tag">section</span>&gt;<br><br>
+                    &lt;<span class="tag">article</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;<span class="tag">p</span>&gt;Notícia Independente&lt;/<span class="tag">p</span>&gt;<br>
+                    &lt;/<span class="tag">article</span>&gt;
+                </div>
+            </div>
+            <div>
+                <p><strong>Section:</strong> Agrupa conteúdos relacionados por tema.</p>
+                <p><strong>Article:</strong> Conteúdo independente que faz sentido sozinho (Ex: post de blog).</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">HIERARQUIA DE <span>TÍTULOS (H)</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <p><strong>H1:</strong> O mais importante (SEO).</p>
+                <p><strong>H2 a H6:</strong> Subtítulos e seções menores.</p>
+            </div>
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content">
+                    &lt;<span class="tag">h1</span>&gt;Título 1&lt;/<span class="tag">h1</span>&gt;<br>
+                    &lt;<span class="tag">h2</span>&gt;Título 2&lt;/<span class="tag">h2</span>&gt;<br>
+                    &lt;<span class="tag">h3</span>&gt;Título 3&lt;/<span class="tag">h3</span>&gt;
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">ORGANIZAÇÃO E <span>QUEBRAS</span></h2>
+    <div class="content-area">
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content">
+                &lt;<span class="comment">!-- Este é um comentário invisível --&gt;</span><br>
+                &lt;<span class="tag">p</span>&gt;Linha 1&lt;<span class="tag">br</span>&gt;Linha 2&lt;/<span class="tag">p</span>&gt;<br>
+                &lt;<span class="tag">hr</span>&gt; <span class="comment">&lt;!-- Linha Horizontal Divisória --&gt;</span>
+            </div>
+        </div>
+        <p style="margin-top: 30px;">Use <code>&lt;hr&gt;</code> para separar seções visualmente e <strong>comentários</strong> para organizar sua mente.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">DANDO <span>SIGNIFICADO</span> AO TEXTO</h2>
+    <div class="content-area">
+        <table>
+            <thead><tr><th>TAG</th><th>SIGNIFICADO</th><th>VISUAL</th></tr></thead>
+            <tbody>
+                <tr><td><code>&lt;strong&gt;</code></td><td>Texto Muito Importante</td><td><strong>Negrito</strong></td></tr>
+                <tr><td><code>&lt;em&gt;</code></td><td>Ênfase Leve</td><td><em>Itálico</em></td></tr>
+                <tr><td><code>&lt;mark&gt;</code></td><td>Destaque Visual</td><td><mark>Marcado</mark></td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">LISTAS <span>NÃO ORDENADAS</span> (UL)</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content">
+                    &lt;<span class="tag">ul</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;<span class="tag">li</span>&gt;Item 1&lt;/<span class="tag">li</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;<span class="tag">li</span>&gt;Item 2&lt;/<span class="tag">li</span>&gt;<br>
+                    &lt;/<span class="tag">ul</span>&gt;
+                </div>
+            </div>
+            <div><p>Ideal para menus e listas sem ordem de importância.</p></div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">LISTAS <span>ORDENADAS</span> (OL)</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div><p>Perfeito para rankings ou passos de tutorial.</p></div>
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content">
+                    &lt;<span class="tag">ol</span> <span class="attr">start</span>=<span class="val">"1"</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;<span class="tag">li</span>&gt;Passo A&lt;/<span class="tag">li</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;<span class="tag">li</span>&gt;Passo B&lt;/<span class="tag">li</span>&gt;<br>
+                    &lt;/<span class="tag">ol</span>&gt;
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">CONECTANDO: <span>TAG ÂNCORA</span></h2>
+    <div class="content-area">
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content">
+                &lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="val">"https://google.com"</span> <span class="attr">target</span>=<span class="val">"_blank"</span>&gt;Ir para o Google&lt;/<span class="tag">a</span>&gt;
+            </div>
+        </div>
+        <p style="margin-top: 30px;">O atributo <strong>href</strong> é o destino. O <strong>target="_blank"</strong> abre em nova aba.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">ESTRUTURA DE <span>TABELA</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content">
+                    &lt;<span class="tag">table</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;<span class="tag">tr</span>&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">td</span>&gt;Linha 1 Col 1&lt;/<span class="tag">td</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;/<span class="tag">tr</span>&gt;<br>
+                    &lt;/<span class="tag">table</span>&gt;
+                </div>
+            </div>
+            <div>
+                <ul>
+                    <li><strong>&lt;table&gt;:</strong> Inicia a tabela.</li>
+                    <li><strong>&lt;tr&gt;:</strong> Linha (Table Row).</li>
+                    <li><strong>&lt;td&gt;:</strong> Célula (Table Data).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">TABELAS <span>PROFISSIONAIS</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div class="image-wrapper contain">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Table Structure Illustration">
+            </div>
+            <div>
+                <p>Use tags organizadoras:</p>
+                <ul>
+                    <li><strong>&lt;thead&gt;:</strong> Cabeçalho.</li>
+                    <li><strong>&lt;th&gt;:</strong> Célula de Título.</li>
+                    <li><strong>&lt;tbody&gt;:</strong> Corpo dos dados.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">DADOS TABULARES: <span>O QUE É?</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <p>Uma <strong>tabela HTML</strong> representa informações em <strong>linhas e colunas</strong>: cada <code>&lt;tr&gt;</code> é uma linha; dentro dela, cada <code>&lt;td&gt;</code> ou <code>&lt;th&gt;</code> é uma célula.</p>
+                <p>Em uma mesma linha, o número de células deve “fechar a conta” com as demais linhas (salvo quando você usa <strong>colspan</strong> ou <strong>rowspan</strong>).</p>
+            </div>
+            <div>
+                <p style="margin-bottom: 16px;"><strong>Exemplo visual (renderizado):</strong></p>
+                <table>
+                    <thead>
+                        <tr><th>Produto</th><th>Qtd</th><th>Preço</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Caneta</td><td>10</td><td>R$ 2,00</td></tr>
+                        <tr><td>Caderno</td><td>3</td><td>R$ 15,00</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">CAPTION, THEAD E <span>TBODY</span></h2>
+    <div class="content-area">
+        <p style="margin-bottom: 18px;">Abaixo, o <strong>código HTML</strong> da mesma tabela do slide anterior (Produto / Qtd / Preço). <strong>&lt;caption&gt;</strong> é o título visível; <strong>thead</strong> agrupa o cabeçalho; <strong>tbody</strong> agrupa as linhas de dados.</p>
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content code-content--compact">
+                &lt;<span class="tag">table</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">caption</span>&gt;Itens do pedido&lt;/<span class="tag">caption</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">thead</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">tr</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">th</span> <span class="attr">scope</span>=<span class="val">"col"</span>&gt;Produto&lt;/<span class="tag">th</span>&gt;&lt;<span class="tag">th</span> <span class="attr">scope</span>=<span class="val">"col"</span>&gt;Qtd&lt;/<span class="tag">th</span>&gt;&lt;<span class="tag">th</span> <span class="attr">scope</span>=<span class="val">"col"</span>&gt;Preço&lt;/<span class="tag">th</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="tag">tr</span>&gt;<br>
+                &nbsp;&nbsp;&lt;/<span class="tag">thead</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">tbody</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">tr</span>&gt;&lt;<span class="tag">td</span>&gt;Caneta&lt;/<span class="tag">td</span>&gt;&lt;<span class="tag">td</span>&gt;10&lt;/<span class="tag">td</span>&gt;&lt;<span class="tag">td</span>&gt;R$ 2,00&lt;/<span class="tag">td</span>&gt;&lt;/<span class="tag">tr</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">tr</span>&gt;&lt;<span class="tag">td</span>&gt;Caderno&lt;/<span class="tag">td</span>&gt;&lt;<span class="tag">td</span>&gt;3&lt;/<span class="tag">td</span>&gt;&lt;<span class="tag">td</span>&gt;R$ 15,00&lt;/<span class="tag">td</span>&gt;&lt;/<span class="tag">tr</span>&gt;<br>
+                &nbsp;&nbsp;&lt;/<span class="tag">tbody</span>&gt;<br>
+                &nbsp;&nbsp;<span class="comment">&lt;!-- em seguida entra o &lt;tfoot&gt; … --&gt;</span>
+            </div>
+        </div>
+        <p style="margin-top: 18px; font-size: 20px; color: #94a3b8;">No próximo slide: fechamos com <strong>tfoot</strong> e o <code>&lt;/table&gt;</code> correto.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">TFOOT — <span>CONCEITO E EXEMPLO VISUAL</span></h2>
+    <div class="content-area">
+        <p style="margin-bottom: 14px;"><strong>&lt;tfoot&gt;</strong> agrupa a <strong>última linha</strong> da tabela — no nosso exemplo, os <strong>totais</strong> depois de Caneta e Caderno. No HTML ela vem <strong>depois</strong> do <code>tbody</code>; no navegador o bloco aparece no <strong>fim</strong> da grade, como rodapé.</p>
+        <p style="margin-bottom: 10px; font-size: 20px; color: #94a3b8;"><strong>Exemplo visual</strong> — a linha destacada no fim é o <code>tfoot</code> (totais de quantidade e valor):</p>
+        <div class="slide-tfoot-demo">
+            <table>
+                <caption>Itens do pedido</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Qtd</th>
+                        <th scope="col">Preço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Caneta</td>
+                        <td>10</td>
+                        <td>R$ 2,00</td>
+                    </tr>
+                    <tr>
+                        <td>Caderno</td>
+                        <td>3</td>
+                        <td>R$ 15,00</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th scope="row">Total</th>
+                        <td>13</td>
+                        <td>R$ 65,00</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <p style="margin-top: 20px; font-size: 20px; color: #94a3b8;">No próximo slide: o <strong>código HTML completo</strong> dessa mesma tabela.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">TFOOT — <span>CÓDIGO HTML</span></h2>
+    <div class="content-area">
+        <p style="margin-bottom: 14px; font-size: 20px; color: #94a3b8;">Mesmo exemplo (Itens do pedido): o bloco <code>&lt;tfoot&gt;</code> no final do arquivo, antes de <code>&lt;/table&gt;</code>.</p>
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content code-content--compact">
+                &lt;<span class="tag">table</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">caption</span>&gt;Itens do pedido&lt;/<span class="tag">caption</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">thead</span>&gt;&lt;<span class="tag">tr</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">th</span> <span class="attr">scope</span>=<span class="val">"col"</span>&gt;Produto&lt;/<span class="tag">th</span>&gt;&lt;<span class="tag">th</span> <span class="attr">scope</span>=<span class="val">"col"</span>&gt;Qtd&lt;/<span class="tag">th</span>&gt;&lt;<span class="tag">th</span> <span class="attr">scope</span>=<span class="val">"col"</span>&gt;Preço&lt;/<span class="tag">th</span>&gt;<br>
+                &nbsp;&nbsp;&lt;/<span class="tag">tr</span>&gt;&lt;/<span class="tag">thead</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">tbody</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">tr</span>&gt;&lt;<span class="tag">td</span>&gt;Caneta&lt;/<span class="tag">td</span>&gt;&lt;<span class="tag">td</span>&gt;10&lt;/<span class="tag">td</span>&gt;&lt;<span class="tag">td</span>&gt;R$ 2,00&lt;/<span class="tag">td</span>&gt;&lt;/<span class="tag">tr</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">tr</span>&gt;&lt;<span class="tag">td</span>&gt;Caderno&lt;/<span class="tag">td</span>&gt;&lt;<span class="tag">td</span>&gt;3&lt;/<span class="tag">td</span>&gt;&lt;<span class="tag">td</span>&gt;R$ 15,00&lt;/<span class="tag">td</span>&gt;&lt;/<span class="tag">tr</span>&gt;<br>
+                &nbsp;&nbsp;&lt;/<span class="tag">tbody</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">tfoot</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">tr</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">th</span> <span class="attr">scope</span>=<span class="val">"row"</span>&gt;Total&lt;/<span class="tag">th</span>&gt;&lt;<span class="tag">td</span>&gt;13&lt;/<span class="tag">td</span>&gt;&lt;<span class="tag">td</span>&gt;R$ 65,00&lt;/<span class="tag">td</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="tag">tr</span>&gt;<br>
+                &nbsp;&nbsp;&lt;/<span class="tag">tfoot</span>&gt;<br>
+                &lt;/<span class="tag">table</span>&gt;
+            </div>
+        </div>
+        <p style="margin-top: 16px; font-size: 20px;">A linha destacada no slide anterior = este <code>&lt;tfoot&gt;</code>: <code>th</code> com <code>scope="row"</code> em “Total” e duas <code>td</code> (13 un.; R$ 65,00 = 10×R$ 2,00 + 3×R$ 15,00).</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">POR QUE SEPARAR <span>thead, tbody E tfoot?</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <ul>
+                    <li><strong>Acessibilidade:</strong> leitores de tela usam essas regiões para anunciar o cabeçalho certo ao ler cada célula — especialmente em tabelas grandes.</li>
+                    <li><strong>CSS:</strong> você pode estilizar só o corpo (<code>tbody tr:nth-child(even)</code> para zebrar linhas) sem afetar o cabeçalho.</li>
+                    <li><strong>Scripts:</strong> somar ou filtrar dados costuma olhar só para as linhas dentro de <code>tbody</code>.</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><strong>Impressão:</strong> em alguns casos o navegador pode repetir <code>thead</code> (e tratar <code>tfoot</code>) de forma mais previsível ao imprimir páginas longas.</li>
+                    <li><strong>Ordem no HTML:</strong> mesmo com <code>tfoot</code>, você pode escrever <code>thead</code> → <code>tbody</code> → <code>tfoot</code>; o rodapé continua visualmente no fim da tabela.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">&lt;th&gt; VS &lt;td&gt; E O <span>scope</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <p>Use <strong>&lt;th&gt;</strong> para células que são <strong>título</strong> de linha ou coluna (não só estética: significa “cabeçalho”).</p>
+                <p>O atributo <strong>scope</strong> deixa explícito o papel da célula:</p>
+                <ul>
+                    <li><strong>scope="col"</strong> — título da coluna (típico na primeira linha do thead).</li>
+                    <li><strong>scope="row"</strong> — título da linha (ex.: primeira célula de cada linha no corpo, como “Produto A”).</li>
+                </ul>
+            </div>
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content" style="font-size: 18px;">
+                    &lt;<span class="tag">tbody</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;<span class="tag">tr</span>&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">th</span> <span class="attr">scope</span>=<span class="val">"row"</span>&gt;Manhã&lt;/<span class="tag">th</span>&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">td</span>&gt;9h–12h&lt;/<span class="tag">td</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;/<span class="tag">tr</span>&gt;<br>
+                    &lt;/<span class="tag">tbody</span>&gt;
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">TABELAS: <span>BOAS PRÁTICAS</span></h2>
+    <div class="content-area">
+        <div class="tile-grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="tile" style="text-align: left;">
+                <h3 style="margin-top: 0;"><i class="fa-solid fa-check-double" style="font-size: 32px;"></i> USE PARA</h3>
+                <p style="margin: 0;">Preços, horários, comparativos, listas de contatos em grade — sempre que a relação <strong>linha × coluna</strong> fizer sentido para os dados.</p>
+            </div>
+            <div class="tile" style="text-align: left;">
+                <h3 style="margin-top: 0;"><i class="fa-solid fa-xmark" style="font-size: 32px; color: #f87171;"></i> EVITE</h3>
+                <p style="margin: 0;">Montar o <strong>layout geral</strong> do site (menu, colunas da página) com tabelas. Hoje usamos <strong>CSS Flexbox/Grid</strong> para layout; tabela é para <strong>dados tabulares</strong>.</p>
+            </div>
+        </div>
+        <p style="margin-top: 28px; text-align: center;">Combine <strong>caption</strong>, cabeçalhos <strong>th</strong> com <strong>scope</strong> e regiões <strong>thead/tbody/tfoot</strong> para código claro e mais acessível.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">MESCLAGEM: <span>SPAN</span></h2>
+    <div class="content-area">
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content">
+                &lt;<span class="tag">td</span> <span class="attr">colspan</span>=<span class="val">"2"</span>&gt;Ocupa 2 Colunas&lt;/<span class="tag">td</span>&gt;<br>
+                &lt;<span class="tag">td</span> <span class="attr">rowspan</span>=<span class="val">"2"</span>&gt;Ocupa 2 Linhas&lt;/<span class="tag">td</span>&gt;
+            </div>
+        </div>
+        <p style="margin-top: 30px;">Use <strong>colspan</strong> para esticar para o lado e <strong>rowspan</strong> para esticar para baixo.</p>
+        <p style="margin-top: 16px;">Cada linha deve somar o mesmo número de <strong>colunas lógicas</strong>: <code>colspan="2"</code> ocupa dois espaços naquela linha. Com <strong>rowspan</strong>, a célula “segura” as linhas de baixo — nas próximas <code>&lt;tr&gt;</code> você <strong>não coloca</strong> outra célula no mesmo lugar, senão a grade quebra.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">INSERINDO <span>IMAGENS</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content">
+                    &lt;<span class="tag">img</span> <span class="attr">src</span>=<span class="val">"foto.jpg"</span> <span class="attr">alt</span>=<span class="val">"Descrição"</span>&gt;
+                </div>
+            </div>
+            <div><p><strong>ALT:</strong> Essencial para acessibilidade e SEO.</p></div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">IMAGENS <span>RESPONSIVAS</span></h2>
+    <div class="content-area">
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content">
+                &lt;<span class="tag">picture</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">source</span> <span class="attr">media</span>=<span class="val">"(max-width: 600px)"</span> <span class="attr">srcset</span>=<span class="val">"mobile.jpg"</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">img</span> <span class="attr">src</span>=<span class="val">"desktop.jpg"</span>&gt;<br>
+                &lt;/<span class="tag">picture</span>&gt;
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">MÍDIA: <span>ÁUDIO NATIVO</span></h2>
+    <div class="content-area">
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content">
+                &lt;<span class="tag">audio</span> <span class="attr">controls</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">source</span> <span class="attr">src</span>=<span class="val">"audio.mp3"</span> <span class="attr">type</span>=<span class="val">"audio/mpeg"</span>&gt;<br>
+                &lt;/<span class="tag">audio</span>&gt;
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">MÍDIA: <span>VÍDEO NATIVO</span></h2>
+    <div class="content-area">
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content">
+                &lt;<span class="tag">video</span> <span class="attr">controls</span> <span class="attr">poster</span>=<span class="val">"capa.jpg"</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">source</span> <span class="attr">src</span>=<span class="val">"video.mp4"</span>&gt;<br>
+                &lt;/<span class="tag">video</span>&gt;
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">CONTEÚDO EXTERNO: <span>IFRAME</span></h2>
+    <div class="content-area">
+        <p>Embutir YouTube, Maps ou outros sites.</p>
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content">
+                &lt;<span class="tag">iframe</span> <span class="attr">src</span>=<span class="val">"https://youtube.com/embed/..."</span>&gt;&lt;/<span class="tag">iframe</span>&gt;
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <div class="section-title-layout">
+        <hr>
+        <h2>TUTORIAL: SEU PERFIL</h2>
+        <p>Linha a linha, construindo seu portfólio inicial.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 1: <span>ARQUIVO</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <p>Abra o VS Code, crie <code>index.html</code> e use <code>!</code> + Enter.</p>
+            </div>
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content">
+                    &lt;!<span class="tag">DOCTYPE html</span>&gt;<br>
+                    &lt;<span class="tag">html</span> <span class="attr">lang</span>=<span class="val">"pt-br"</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;<span class="tag">head</span>&gt;...&lt;/<span class="tag">head</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;<span class="tag">body</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;/<span class="tag">body</span>&gt;<br>
+                    &lt;/<span class="tag">html</span>&gt;
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 2: <span>ESTRUTURA</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <p>Adicione <code>&lt;header&gt;</code> e <code>&lt;main&gt;</code> dentro do body para separar o topo do conteúdo principal.</p>
+            </div>
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content">
+                    &lt;<span class="tag">body</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;<span class="tag">header</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;/<span class="tag">header</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;<span class="tag">main</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;/<span class="tag">main</span>&gt;<br>
+                    &lt;/<span class="tag">body</span>&gt;
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 3: <span>IDENTIDADE</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <p>Coloque seu nome principal usando um <code>&lt;h1&gt;</code> dentro do cabeçalho (header).</p>
+            </div>
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content">
+                    &lt;<span class="tag">header</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;<span class="tag">h1</span>&gt;Seu Nome Aqui&lt;/<span class="tag">h1</span>&gt;<br>
+                    &lt;/<span class="tag">header</span>&gt;
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 4: <span>SEÇÃO BIO</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <p>Crie uma <code>&lt;section&gt;</code> para agrupar as informações sobre você com um texto inicial.</p>
+            </div>
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content">
+                    &lt;<span class="tag">main</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;<span class="tag">section</span>&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">p</span>&gt;Sou estudante de Web.&lt;/<span class="tag">p</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;/<span class="tag">section</span>&gt;<br>
+                    &lt;/<span class="tag">main</span>&gt;
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 5: <span>MÍDIA</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <p>Dentro da mesma <code>&lt;section&gt;</code>, adicione sua foto. Não se esqueça do <code>alt</code>!</p>
+            </div>
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content">
+                    &lt;<span class="tag">section</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;<span class="tag">img</span> <span class="attr">src</span>=<span class="val">"foto.jpg"</span> <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attr">alt</span>=<span class="val">"Minha foto"</span>&gt;<br>
+                    &lt;/<span class="tag">section</span>&gt;
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 6: <span>SKILLS</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <p>Crie uma nova seção ou use a lista <code>&lt;ul&gt;</code> diretamente para enumerar suas habilidades.</p>
+            </div>
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content">
+                    &lt;<span class="tag">ul</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;<span class="tag">li</span>&gt;HTML5&lt;/<span class="tag">li</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;<span class="tag">li</span>&gt;CSS3&lt;/<span class="tag">li</span>&gt;<br>
+                    &lt;/<span class="tag">ul</span>&gt;
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 7: <span>CONTATOS</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <p>Crie um rodapé com <code>&lt;footer&gt;</code> abaixo da <code>&lt;main&gt;</code> e insira links sociais.</p>
+            </div>
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content">
+                    &lt;<span class="tag">footer</span>&gt;<br>
+                    &nbsp;&nbsp;&lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="val">"link.com"</span>&gt;Meu Link&lt;/<span class="tag">a</span>&gt;<br>
+                    &lt;/<span class="tag">footer</span>&gt;<br>
+                    &lt;/<span class="tag">body</span>&gt;
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 8: <span>TABELA DE CONTATOS</span></h2>
+    <div class="content-area">
+        <p style="margin-bottom: 18px;"><strong>&lt;thead&gt;</strong> guarda a <strong>primeira linha</strong> com os títulos das colunas: use <code>&lt;th scope="col"&gt;</code> em “Rede” e “Link”. <strong>&lt;tbody&gt;</strong> guarda <strong>uma linha por contato</strong>: em cada <code>&lt;tr&gt;</code>, a primeira <code>&lt;td&gt;</code> é o nome da rede; a segunda <code>&lt;td&gt;</code> contém o <strong>&lt;a href="…"&gt;</strong> (URL com <code>https://</code> ou <code>mailto:</code> para e-mail).</p>
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content code-content--compact">
+                &lt;<span class="tag">table</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">thead</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">tr</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">th</span> <span class="attr">scope</span>=<span class="val">"col"</span>&gt;Rede&lt;/<span class="tag">th</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">th</span> <span class="attr">scope</span>=<span class="val">"col"</span>&gt;Link&lt;/<span class="tag">th</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="tag">tr</span>&gt;<br>
+                &nbsp;&nbsp;&lt;/<span class="tag">thead</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">tbody</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">tr</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">td</span>&gt;GitHub&lt;/<span class="tag">td</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">td</span>&gt;&lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="val">"https://github.com/seuusuario"</span>&gt;Perfil&lt;/<span class="tag">a</span>&gt;&lt;/<span class="tag">td</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="tag">tr</span>&gt;<br>
+                &nbsp;&nbsp;&lt;/<span class="tag">tbody</span>&gt;<br>
+                &lt;/<span class="tag">table</span>&gt;
+            </div>
+        </div>
+        <p style="margin-top: 16px; font-size: 20px;">Dica: <code>mailto:voce@email.com</code> no <code>href</code> abre o programa de e-mail do visitante.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">BOAS <span>PRÁTICAS</span></h2>
+    <div class="content-area">
+        <div class="tile-grid">
+            <div class="tile"><h3>INDENTAÇÃO</h3><p>Use Tab para organizar níveis de código.</p></div>
+            <div class="tile"><h3>SEMÂNTICA</h3><p>Use tags com significado, evite o "divit".</p></div>
+            <div class="tile"><h3>ACERTOS</h3><p>Valide seu código no W3C Validator.</p></div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">CHECKLIST DE <span>CONQUISTA</span></h2>
+    <div class="content-area">
+        <ul>
+            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Entendi a diferença de <strong>div e span</strong>.</li>
+            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Sei usar <strong>sections e headers</strong>.</li>
+            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Consigo criar uma <strong>tabela</strong> organizada.</li>
+            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Comento e organizo meu código.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="slide-container">
+  <div class="content-area" style="text-align: center;">
+    <h2 style="font-size: 60px; color: #22c55e;">PARABÉNS!</h2>
+    <p style="margin-top: 30px; font-size: 26px;">Sua jornada Web acaba de ganhar uma base inabalável.</p>
+    <p style="margin-top: 60px; font-size: 18px; opacity: 0.85;"><a href="CSS.html" style="color: #38bdf8; font-weight: 600; text-decoration: none;">Módulo 2 · CSS</a> — estilo e layout</p>
+  </div>
+</div>
+
+<div class="slide-container">
+    <div class="content-area" style="text-align: center;">
+        <h2 style="font-size: 50px; color: #fff;">ESPERO VOCÊ NO<br><span style="color: #22c55e;">MÓDULO 2</span></h2>
+        <p style="margin-top: 30px;">Pratique muito o que aprendeu hoje.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <div class="content-area" style="text-align: center; align-items: center;">
+        <h2 class="slide-title" style="border: none; padding: 0; text-align: center; margin-bottom: 16px;">EXEMPLO: <span>PÁGINA DE PERFIL</span></h2>
+        <p style="font-size: 22px; color: #94a3b8; max-width: 640px;">Abra no navegador a página de perfil do tutorial — a mesma estrutura que você construiu (header, main, foto, lista e tabela de contatos), em HTML puro.</p>
+        <a href="exemplos/html/index.html" class="slide-example-btn"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Abrir exemplo de perfil (HTML)</a>
+    </div>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

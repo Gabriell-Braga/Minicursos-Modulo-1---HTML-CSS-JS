@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 4: GitHub Pages — Publicar seu site — Apresentação</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <div class="site-header__group">
+    <span class="site-header__label">Apresentações</span>
+    <a href="index.html" class="site-header__link"><i class="fa-brands fa-html5" aria-hidden="true"></i> Módulo 1 · HTML</a>
+    <a href="CSS.html" class="site-header__link"><i class="fa-brands fa-css3-alt" aria-hidden="true"></i> Módulo 2 · CSS</a>
+    <a href="JS.html" class="site-header__link"><i class="fa-brands fa-js" aria-hidden="true"></i> Módulo 3 · JavaScript</a>
+    <a href="GitHub-Pages.html" class="site-header__link site-header__link--current" aria-current="page"><i class="fa-brands fa-github" aria-hidden="true"></i> Módulo 4 · GitHub Pages</a>
+  </div>
+  <div class="site-header__group">
+    <span class="site-header__label">Exemplos</span>
+    <a href="exemplos/html/index.html" class="site-header__link"><i class="fa-solid fa-user" aria-hidden="true"></i> Perfil (HTML)</a>
+    <a href="exemplos/css/index.html" class="site-header__link"><i class="fa-solid fa-paintbrush" aria-hidden="true"></i> Perfil + CSS</a>
+    <a href="exemplos/js/index.html" class="site-header__link"><i class="fa-brands fa-js" aria-hidden="true"></i> Perfil + JS</a>
+  </div>
+</header>
+
+<nav class="slide-controls" aria-label="Navegação da apresentação">
+  <button type="button" id="prev-slide" aria-label="Slide anterior"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+  <span id="slide-counter" aria-live="polite"><span class="current">1</span> / <span id="slide-total">—</span></span>
+  <button type="button" id="next-slide" aria-label="Próximo slide"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+</nav>
+
+<div class="slides-deck">
+
+<div class="slide-container is-active" style="background: linear-gradient(rgba(2, 6, 23, 0.92), rgba(2, 6, 23, 0.92)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80'); background-size: cover;">
+  <div class="content-area" style="align-items: center;">
+    <h1>MÓDULO 4:<br><span style="color: #a855f7;">GITHUB PAGES</span></h1>
+    <p style="font-size: 28px; color: #94a3b8; margin-top: 40px; letter-spacing: 3px; font-weight: 500;">GIT, REPOSITÓRIO E SITE NO AR EM github.io</p>
+  </div>
+</div>
+
+<div class="slide-container">
+    <div class="section-title-layout">
+        <hr style="background: #a855f7;">
+        <h2 style="color: #a855f7;">Do projeto local à URL pública</h2>
+        <p>Você já tem HTML, CSS e JS — agora vamos versionar e publicar.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">GIT <span style="color: #a855f7;">E</span> GITHUB</h2>
+    <div class="content-area">
+        <div class="two-column" style="align-items: start; gap: 32px;">
+            <div>
+                <p style="font-size: 20px; margin-top: 0;"><strong>Git</strong> é o controle de versão na sua máquina: histórico de alterações, branches e commits.</p>
+                <p style="font-size: 20px;"><strong>GitHub</strong> é um serviço na nuvem que hospeda repositórios Git — backup, colaboração e (com <strong>Pages</strong>) hospedagem gratuita de site estático.</p>
+            </div>
+            <div class="tile-grid" style="grid-template-columns: 1fr;">
+                <div class="tile" style="text-align: left; padding: 28px;"><i class="fa-solid fa-laptop-code" style="color: #a855f7;"></i><h3>LOCAL</h3><p>Pasta do projeto + pasta oculta <code class="code-inline">.git</code> com o histórico.</p></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">O QUE VOCÊ <span style="color: #a855f7;">PRECISA</span></h2>
+    <div class="content-area">
+        <ul style="font-size: 21px; line-height: 1.65; max-width: 800px;">
+            <li style="margin-bottom: 14px;"><i class="fa-solid fa-check" style="color: #a855f7;"></i> Conta gratuita em <strong>github.com</strong>.</li>
+            <li style="margin-bottom: 14px;"><i class="fa-solid fa-check" style="color: #a855f7;"></i> <strong>Git</strong> instalado no computador (<code class="code-inline">git --version</code> no terminal).</li>
+            <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> Terminal integrado ao editor (VS Code / Cursor: <code class="code-inline">Ctrl+`</code>) ou PowerShell / bash.</li>
+        </ul>
+        <p style="font-size: 18px; color: #94a3b8; margin-top: 24px;">Windows: instale o <strong>Git for Windows</strong>. macOS: <code class="code-inline">xcode-select --install</code> ou Git oficial.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <div class="section-title-layout">
+        <hr style="background: #a855f7;">
+        <h2 style="color: #a855f7;">Revisão rápida de Git</h2>
+        <p>Comandos que você usará o tempo todo.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">CONFIGURAR <span style="color: #a855f7;">IDENTIDADE</span> (1×)</h2>
+    <div class="content-area">
+        <p style="font-size: 19px; color: #cbd5e1; margin-top: 0;">Antes do primeiro commit, diga ao Git quem você é (aparece no histórico).</p>
+        <div class="code-window" style="max-width: 720px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div><span style="margin-left:12px;color:#94a3b8;font-size:13px;">Terminal</span></div>
+            <div class="code-content code-content--compact" style="font-size: 15px;">
+                git config --global user.name <span class="val">"Seu Nome"</span><br>
+                git config --global user.email <span class="val">"seu@email.com"</span>
+            </div>
+        </div>
+        <p style="font-size: 16px; color: #94a3b8; margin-top: 14px;">Use o <strong>mesmo e-mail</strong> da conta GitHub (ou o e-mail privado que o GitHub gera em Settings → Emails) para os commits aparecerem no seu perfil.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title"><span style="color: #a855f7;">INIT</span> E <span style="color: #a855f7;">STATUS</span></h2>
+    <div class="content-area">
+        <p style="font-size: 19px; color: #cbd5e1; margin-top: 0;">Dentro da pasta do projeto:</p>
+        <div class="code-window" style="max-width: 720px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content code-content--compact" style="font-size: 15px;">
+                git init<br>
+                git status
+            </div>
+        </div>
+        <ul style="font-size: 18px; margin-top: 18px;">
+            <li><code class="code-inline">init</code> cria o repositório local (a pasta <code class="code-inline">.git</code>).</li>
+            <li><code class="code-inline">status</code> mostra arquivos <em>untracked</em>, <em>modified</em> ou prontos para commit.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title"><span style="color: #a855f7;">ADD</span> E <span style="color: #a855f7;">COMMIT</span></h2>
+    <div class="content-area">
+        <p style="font-size: 19px; color: #cbd5e1; margin-top: 0;"><strong>Commit</strong> = snapshot com mensagem. Primeiro os arquivos entram na <em>staging area</em> com <code class="code-inline">add</code>.</p>
+        <div class="code-window" style="max-width: 720px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content code-content--compact" style="font-size: 15px;">
+                git add .<br>
+                <span class="comment"># ou arquivo específico: git add index.html</span><br><br>
+                git commit -m <span class="val">"Primeira versão do site"</span>
+            </div>
+        </div>
+        <p style="font-size: 16px; color: #94a3b8; margin-top: 14px;">Boas mensagens descrevem <strong>o que mudou</strong>, no imperativo: “Adiciona CSS do perfil”, “Corrige link do menu”.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title"><span style="color: #a855f7;">LOG</span> E <span style="color: #a855f7;">DIFF</span></h2>
+    <div class="content-area">
+        <div class="two-column" style="align-items: start; gap: 24px;">
+            <div>
+                <div class="code-window">
+                    <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                    <div class="code-content code-content--compact" style="font-size: 15px;">
+                        git log --oneline<br>
+                        git diff<br>
+                        git diff --staged
+                    </div>
+                </div>
+            </div>
+            <ul style="font-size: 18px; margin: 0; padding-left: 1.2rem;">
+                <li style="margin-bottom: 10px;"><code class="code-inline">log</code> — histórico de commits (hash + mensagem).</li>
+                <li style="margin-bottom: 10px;"><code class="code-inline">diff</code> — alterações ainda não adicionadas ao stage.</li>
+                <li><code class="code-inline">diff --staged</code> — o que vai entrar no próximo commit.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">BRANCH <span style="color: #a855f7;">MAIN</span></h2>
+    <div class="content-area">
+        <p style="font-size: 19px; color: #cbd5e1; margin-top: 0;">Repositórios novos costumam usar a branch principal <code class="code-inline">main</code>. Se o Git criar <code class="code-inline">master</code>, você pode renomear:</p>
+        <div class="code-window" style="max-width: 560px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content code-content--compact" style="font-size: 15px;">
+                git branch -M main
+            </div>
+        </div>
+        <p style="font-size: 17px; color: #94a3b8; margin-top: 16px;"><code class="code-inline">git branch</code> lista branches; <code class="code-inline">git switch nome</code> troca de branch (fluxos maiores — aqui só precisamos da <code class="code-inline">main</code>).</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title"><span style="color: #a855f7;">REMOTE</span>, <span style="color: #a855f7;">PUSH</span> E <span style="color: #a855f7;">PULL</span></h2>
+    <div class="content-area">
+        <p style="font-size: 18px; color: #cbd5e1; margin-top: 0;"><strong>Remote</strong> = cópia no GitHub. Depois de criar o repositório vazio no site, conecte e envie:</p>
+        <div class="code-window" style="max-width: 720px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content code-content--compact" style="font-size: 13px; line-height: 1.5;">
+                git remote add origin https://github.com/<span class="val">USUARIO</span>/<span class="val">repositorio</span>.git<br>
+                git push -u origin main
+            </div>
+        </div>
+        <p style="font-size: 17px; color: #94a3b8; margin-top: 14px;"><code class="code-inline">pull</code> traz alterações do remoto: <code class="code-inline">git pull origin main</code> — útil em equipe ou entre dois computadores.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">CLONE E <span style="color: #a855f7;">.GITIGNORE</span></h2>
+    <div class="content-area">
+        <div class="two-column" style="align-items: start; gap: 28px;">
+            <div>
+                <p style="font-size: 18px; margin-top: 0;"><strong>Clone</strong> baixa um repositório existente:</p>
+                <div class="code-window">
+                    <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                    <div class="code-content code-content--compact" style="font-size: 14px;">
+                        git clone https://github.com/USUARIO/repo.git
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p style="font-size: 18px; margin-top: 0;">Arquivo <code class="code-inline">.gitignore</code> lista o que o Git <strong>não</strong> deve versionar:</p>
+                <div class="code-window">
+                    <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                    <div class="code-content code-content--compact" style="font-size: 14px;">
+                        .DS_Store<br>
+                        Thumbs.db<br>
+                        *.log<br>
+                        node_modules/
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <div class="section-title-layout">
+        <hr style="background: #a855f7;">
+        <h2 style="color: #a855f7;">GitHub Pages</h2>
+        <p>Hospedar HTML/CSS/JS direto do repositório.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">CRIAR O <span style="color: #a855f7;">REPOSITÓRIO</span></h2>
+    <div class="content-area">
+        <ul style="font-size: 20px; line-height: 1.6; max-width: 820px;">
+            <li style="margin-bottom: 12px;">No GitHub: <strong>New repository</strong> → nome (ex.: <code class="code-inline">meu-portfolio</code>) → visibilidade <strong>Public</strong> (Pages gratuito em público; contas pagas podem usar privado com Pages).</li>
+            <li style="margin-bottom: 12px;">Pode marcar <strong>Add a README</strong> ou deixar vazio se já vai dar <code class="code-inline">push</code> da pasta local.</li>
+            <li>Copie a URL HTTPS do repositório (botão verde <strong>Code</strong>).</li>
+        </ul>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PRIMEIRO <span style="color: #a855f7;">ENVIO</span></h2>
+    <div class="content-area">
+        <p style="font-size: 17px; color: #94a3b8; margin-top: 0;">Fluxo típico: projeto já na pasta → commits locais → ligar ao GitHub → push.</p>
+        <div class="code-window" style="max-width: 720px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content code-content--compact" style="font-size: 12px; line-height: 1.45;">
+                cd pasta-do-seu-site<br>
+                git init<br>
+                git add .<br>
+                git commit -m <span class="val">"Site inicial"</span><br>
+                git branch -M main<br>
+                git remote add origin https://github.com/<span class="val">USUARIO</span>/<span class="val">repo</span>.git<br>
+                git push -u origin main
+            </div>
+        </div>
+        <p style="font-size: 16px; color: #94a3b8; margin-top: 12px;">Na primeira vez, o Git pode pedir login: use <strong>Personal Access Token</strong> (GitHub → Settings → Developer settings) no lugar da senha, ou faça login pelo <strong>Git Credential Manager</strong>.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">ATIVAR O <span style="color: #a855f7;">PAGES</span></h2>
+    <div class="content-area">
+        <ol style="font-size: 20px; line-height: 1.65; max-width: 820px;">
+            <li style="margin-bottom: 12px;">Abra o repositório no GitHub → <strong>Settings</strong>.</li>
+            <li style="margin-bottom: 12px;">Menu lateral → <strong>Pages</strong> (em “Code and automation”).</li>
+            <li style="margin-bottom: 12px;"><strong>Source</strong>: <em>Deploy from a branch</em>.</li>
+            <li><strong>Branch</strong>: <code class="code-inline">main</code> e pasta <code class="code-inline">/ (root)</code> — ou <code class="code-inline">/docs</code> se seu <code class="code-inline">index.html</code> estiver dentro de uma pasta <code class="code-inline">docs</code>.</li>
+        </ol>
+        <p style="font-size: 17px; color: #94a3b8;">Salve. Em até alguns minutos o site fica disponível na URL pública.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">QUAL É A <span style="color: #a855f7;">URL</span>?</h2>
+    <div class="content-area">
+        <p style="font-size: 22px; color: #e2e8f0;">Projeto em repositório normal:</p>
+        <p style="font-size: 26px; font-family: 'JetBrains Mono', monospace; color: #a855f7;">https://<strong>USUARIO</strong>.github.io/<strong>nome-do-repo</strong>/</p>
+        <p style="font-size: 18px; color: #94a3b8; margin-top: 24px;">Se o repositório se chama <code class="code-inline">USUARIO.github.io</code> (nome especial), o site fica em <code class="code-inline">https://USUARIO.github.io/</code> — útil para domínio curto.</p>
+        <p style="font-size: 17px; color: #94a3b8;">A página inicial deve ser <code class="code-inline">index.html</code> na pasta escolhida (raiz ou <code class="code-inline">docs</code>).</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">ATUALIZAR O <span style="color: #a855f7;">SITE</span></h2>
+    <div class="content-area">
+        <p style="font-size: 19px; color: #cbd5e1; margin-top: 0;">Sempre que alterar arquivos localmente:</p>
+        <div class="code-window" style="max-width: 560px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content code-content--compact" style="font-size: 15px;">
+                git add .<br>
+                git commit -m <span class="val">"Descreve a mudança"</span><br>
+                git push
+            </div>
+        </div>
+        <p style="font-size: 17px; color: #94a3b8; margin-top: 14px;">O GitHub Pages regenera o site em cerca de <strong>1 a 3 minutos</strong>. Atualize o navegador com cache limpo (<code class="code-inline">Ctrl+F5</code>) se não vir a mudança.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PROBLEMAS <span style="color: #a855f7;">COMUNS</span></h2>
+    <div class="content-area">
+        <ul style="font-size: 19px; line-height: 1.55; max-width: 820px;">
+            <li style="margin-bottom: 12px;"><strong>404</strong> — caminho errado; em subpastas, links relativos devem bater com a estrutura publicada.</li>
+            <li style="margin-bottom: 12px;"><strong>Maiúsculas</strong> — no GitHub (Linux) <code class="code-inline">Foto.jpg</code> ≠ <code class="code-inline">foto.jpg</code>. Use sempre o mesmo nome que no disco.</li>
+            <li style="margin-bottom: 12px;"><strong>HTTPS</strong> — misturar recursos <code class="code-inline">http://</code> em página <code class="code-inline">https://</code> pode ser bloqueado (conteúdo misto).</li>
+            <li><strong>Branch</strong> — Pages apontando para branch ou pasta errada; confira em Settings → Pages.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">CHECKLIST DE <span style="color: #a855f7;">PUBLICAÇÃO</span></h2>
+    <div class="content-area">
+        <ul style="font-size: 19px;">
+            <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> <code class="code-inline">index.html</code> na raiz (ou em <code class="code-inline">docs/</code> se for essa opção).</li>
+            <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> Caminhos para CSS/JS/imagens <strong>relativos</strong> ao HTML (ex.: <code class="code-inline">styles.css</code>, <code class="code-inline">./exemplos/...</code>).</li>
+            <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> Repositório <strong>Public</strong> (ou plano com Pages em repo privado).</li>
+            <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> Pages ligado à branch <code class="code-inline">main</code> e pasta correta.</li>
+            <li><i class="fa-solid fa-check" style="color: #a855f7;"></i> Testar a URL <code class="code-inline">.github.io</code> no celular ou aba anônima.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="slide-container">
+  <div class="content-area" style="text-align: center;">
+    <h2 style="font-size: 60px; color: #22c55e;">PARABÉNS!</h2>
+    <p style="margin-top: 30px; font-size: 26px;">Seu projeto pode estar a um <code class="code-inline">git push</code> do mundo inteiro.</p>
+    <p style="margin-top: 50px; font-size: 18px; opacity: 0.85;">Documentação oficial: <a href="https://docs.github.com/pages" style="color: #a855f7; font-weight: 600; text-decoration: none;" target="_blank" rel="noopener noreferrer">docs.github.com/pages</a></p>
+  </div>
+</div>
+
+<div class="slide-container">
+    <div class="content-area" style="text-align: center;">
+        <h2 style="font-size: 50px; color: #fff;">PRÓXIMO PASSO:<br><span style="color: #a855f7;">DOMÍNIO PRÓPRIO</span> E CI/CD</h2>
+        <p style="margin-top: 30px; font-size: 19px; color: #94a3b8;">Depois você pode apontar um domínio comprado nas configurações do Pages.</p>
+    </div>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

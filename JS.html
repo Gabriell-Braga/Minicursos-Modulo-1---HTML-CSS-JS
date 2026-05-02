@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 3: JavaScript na Prática — Apresentação</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <div class="site-header__group">
+    <span class="site-header__label">Apresentações</span>
+    <a href="index.html" class="site-header__link"><i class="fa-brands fa-html5" aria-hidden="true"></i> Módulo 1 · HTML</a>
+    <a href="CSS.html" class="site-header__link"><i class="fa-brands fa-css3-alt" aria-hidden="true"></i> Módulo 2 · CSS</a>
+    <a href="JS.html" class="site-header__link site-header__link--current" aria-current="page"><i class="fa-brands fa-js" aria-hidden="true"></i> Módulo 3 · JavaScript</a>
+    <a href="GitHub-Pages.html" class="site-header__link"><i class="fa-brands fa-github" aria-hidden="true"></i> Módulo 4 · GitHub Pages</a>
+  </div>
+  <div class="site-header__group">
+    <span class="site-header__label">Exemplos</span>
+    <a href="exemplos/html/index.html" class="site-header__link"><i class="fa-solid fa-user" aria-hidden="true"></i> Perfil (HTML)</a>
+    <a href="exemplos/css/index.html" class="site-header__link"><i class="fa-solid fa-paintbrush" aria-hidden="true"></i> Perfil + CSS</a>
+    <a href="exemplos/js/index.html" class="site-header__link"><i class="fa-brands fa-js" aria-hidden="true"></i> Perfil + JS</a>
+  </div>
+</header>
+
+<nav class="slide-controls" aria-label="Navegação da apresentação">
+  <button type="button" id="prev-slide" aria-label="Slide anterior"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+  <span id="slide-counter" aria-live="polite"><span class="current">1</span> / <span id="slide-total">—</span></span>
+  <button type="button" id="next-slide" aria-label="Próximo slide"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+</nav>
+
+<div class="slides-deck">
+
+<div class="slide-container is-active" style="background: linear-gradient(rgba(2, 6, 23, 0.92), rgba(2, 6, 23, 0.92)), url('https://images.unsplash.com/photo-1627398242454-45a6765d85e8?auto=format&fit=crop&w=1920&q=80'); background-size: cover;">
+  <div class="content-area" style="align-items: center;">
+    <h1>MÓDULO 3:<br><span style="color: #eab308;">JAVASCRIPT NA PRÁTICA</span></h1>
+    <p style="font-size: 28px; color: #94a3b8; margin-top: 40px; letter-spacing: 4px; font-weight: 500;">INTERAÇÃO, DOM E PRIMEIROS PASSOS NO NAVEGADOR</p>
+  </div>
+</div>
+
+<div class="slide-container">
+    <div class="section-title-layout">
+        <hr>
+        <h2>O Papel do JavaScript</h2>
+        <p>Da página estática ao comportamento inteligente.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">O TRIPÉ <span>COMPLETO</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 28px;"><i class="fa-solid fa-code" style="color: #22c55e;"></i> <strong>HTML:</strong> estrutura e significado.</li>
+                    <li style="margin-bottom: 28px;"><i class="fa-solid fa-palette" style="color: #38bdf8;"></i> <strong>CSS:</strong> aparência e layout.</li>
+                    <li><i class="fa-brands fa-js" style="color: #eab308;"></i> <strong>JavaScript:</strong> lógica, eventos e atualização da página.</li>
+                </ul>
+            </div>
+            <div class="image-wrapper contain">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80" alt="Trabalho em notebook">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">O QUE O <span style="color: #eab308;">JS</span> FAZ?</h2>
+    <div class="content-area">
+        <div class="tile-grid">
+            <div class="tile"><i class="fa-solid fa-sitemap"></i><h3>DOM</h3><p>Ler e alterar elementos da página após o carregamento.</p></div>
+            <div class="tile"><i class="fa-solid fa-hand-pointer"></i><h3>EVENTOS</h3><p>Responder a cliques, teclas, rolagem e envio de formulários.</p></div>
+            <div class="tile"><i class="fa-solid fa-database"></i><h3>DADOS</h3><p>Calcular, guardar temporariamente no navegador e validar entradas.</p></div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">ONDE O JS <span>RODA</span></h2>
+    <div class="content-area">
+        <p style="font-size: 22px; color: #cbd5e1; max-width: 720px;">No <strong>navegador</strong>, o motor JavaScript (por exemplo V8 no Chrome) executa seu código depois que o HTML foi interpretado. Por isso ligamos o script no final do <code class="code-inline">&lt;body&gt;</code> ou usamos <code class="code-inline">defer</code> na tag <code class="code-inline">&lt;script&gt;</code>.</p>
+        <ul style="margin-top: 24px; font-size: 20px;">
+            <li><i class="fa-solid fa-check" style="color: #eab308;"></i> Não precisa instalar nada além do editor e do navegador para os primeiros exercícios.</li>
+            <li><i class="fa-solid fa-check" style="color: #eab308;"></i> O <strong>Console</strong> das DevTools mostra erros e o resultado de <code class="code-inline">console.log</code>.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">REQUISITOS E <span>FERRAMENTAS</span></h2>
+    <div class="content-area">
+        <div class="two-column" style="align-items: start; gap: 32px;">
+            <div>
+                <p style="font-size: 20px; margin-top: 0;"><strong>O que você precisa</strong></p>
+                <ul style="font-size: 18px; line-height: 1.55; margin: 0; padding-left: 1.2rem;">
+                    <li style="margin-bottom: 8px;"><strong>Navegador</strong> atualizado (Chrome, Edge, Firefox ou Safari) — o JS roda nele.</li>
+                    <li style="margin-bottom: 8px;"><strong>Editor de código</strong> — por exemplo <strong>Visual Studio Code</strong> ou <strong>Cursor</strong> (baseado no VS Code).</li>
+                    <li><strong>Pasta do projeto</strong> aberta no editor; arquivos <code class="code-inline">.html</code> / <code class="code-inline">.js</code> salvos em UTF-8.</li>
+                </ul>
+            </div>
+            <div>
+                <p style="font-size: 20px; margin-top: 0;"><strong>Já vem no navegador</strong></p>
+                <ul style="font-size: 18px; line-height: 1.55; margin: 0; padding-left: 1.2rem;">
+                    <li><strong>Ferramentas de desenvolvedor</strong> (<code class="code-inline">F12</code>): abas <em>Console</em>, <em>Elements</em> e <em>Sources</em> para inspecionar HTML, CSS e erros de JS.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">EXTENSÕES ÚTEIS <span>(VS CODE / CURSOR)</span></h2>
+    <div class="content-area">
+        <p style="font-size: 18px; color: #94a3b8; margin-top: 0; margin-bottom: 20px;">Instale pelo painel de extensões (ícone de quadrados no lado esquerdo). Nomes podem variar levemente; busque pelo título.</p>
+        <div class="tile-grid">
+            <div class="tile"><i class="fa-solid fa-server"></i><h3>LIVE SERVER</h3><p>Sobe um servidor local e recarrega ao salvar — evita abrir o HTML como <code class="code-inline">file://</code>, que às vezes limita <code class="code-inline">fetch</code> e módulos.</p></div>
+            <div class="tile"><i class="fa-solid fa-shirt"></i><h3>ESLINT</h3><p>Avisa erros de sintaxe e estilo no próprio editor enquanto você digita.</p></div>
+            <div class="tile"><i class="fa-solid fa-wand-magic-sparkles"></i><h3>PRETTIER</h3><p>Formata JS/HTML/CSS com um atalho — código mais legível e uniforme.</p></div>
+        </div>
+        <p style="font-size: 17px; color: #94a3b8; margin-top: 20px; margin-bottom: 0;">Opcionais: <strong>Error Lens</strong> (mostra erros na linha), <strong>JavaScript (ES6) code snippets</strong> (atalhos para laços e funções). No Cursor, muitas extensões do VS Code funcionam igual.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">INCLUIR UM ARQUIVO <span>.js</span></h2>
+    <div class="content-area">
+        <pre style="background: #0f172a; padding: 24px; border-radius: 12px; border: 1px solid #334155; font-family: 'JetBrains Mono', monospace; font-size: 17px; overflow-x: auto; text-align: left; width: 100%; max-width: 720px;"><code>&lt;script src="perfil.js" defer&gt;&lt;/script&gt;
+&lt;!-- defer: baixa em paralelo e executa após o HTML --&gt;</code></pre>
+        <p style="margin-top: 20px; color: #94a3b8;">Um arquivo externo mantém HTML, CSS e JS organizados — o mesmo padrão do exemplo <strong>Perfil + JS</strong>.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">CONSOLE E <span>console.log</span></h2>
+    <div class="content-area">
+        <p style="font-size: 22px;">Abra <strong>F12</strong> → aba <strong>Console</strong>. Use para inspecionar valores e depurar.</p>
+        <pre style="background: #0f172a; padding: 24px; border-radius: 12px; border: 1px solid #334155; font-family: 'JetBrains Mono', monospace; font-size: 17px; overflow-x: auto; text-align: left; width: 100%; max-width: 560px; margin-top: 16px;"><code>console.log('Olá, mundo!');
+let n = 2 + 3;
+console.log(n);</code></pre>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">VARIÁVEIS: <span>let</span> E <span>const</span></h2>
+    <div class="content-area">
+        <ul style="font-size: 22px;">
+            <li style="margin-bottom: 16px;"><code class="code-inline">let</code> — valor pode mudar (contador, texto atualizado).</li>
+            <li style="margin-bottom: 16px;"><code class="code-inline">const</code> — referência fixa; use quando não vai reatribuir.</li>
+            <li>Evite <code class="code-inline">var</code> em código novo — comportamento de escopo mais confuso.</li>
+        </ul>
+        <pre style="background: #0f172a; padding: 24px; border-radius: 12px; border: 1px solid #334155; font-family: 'JetBrains Mono', monospace; font-size: 17px; overflow-x: auto; text-align: left; width: 100%; max-width: 520px; margin-top: 20px;"><code>const ano = new Date().getFullYear();</code></pre>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">TIPOS ÚTEIS <span>NO INÍCIO</span></h2>
+    <div class="content-area">
+        <div class="tile-grid">
+            <div class="tile"><i class="fa-solid fa-quote-right"></i><h3>STRING</h3><p>Texto entre aspas: <code class="code-inline">'Olá'</code></p></div>
+            <div class="tile"><i class="fa-solid fa-hashtag"></i><h3>NÚMERO</h3><p>Inteiros e decimais: <code class="code-inline">2026</code>, <code class="code-inline">3.14</code></p></div>
+            <div class="tile"><i class="fa-solid fa-toggle-on"></i><h3>BOOLEAN</h3><p><code class="code-inline">true</code> ou <code class="code-inline">false</code></p></div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <div class="section-title-layout">
+        <hr>
+        <h2>REVISÃO DE SINTAXE</h2>
+        <p>Condicionais, laços e tratamento de erro — só um passe rápido.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">SINTAXE · <span>IF E ELSE</span></h2>
+    <div class="content-area">
+        <p style="font-size: 18px; color: #cbd5e1; margin-top: 0; max-width: 780px;">Mesma ideia de outras linguagens: executa um bloco só se a condição for verdadeira. Encadeie com <code class="code-inline">else if</code> e finalize com <code class="code-inline">else</code> opcional.</p>
+        <div class="code-window" style="max-width: 720px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content code-content--compact" style="font-size: 15px;">
+                <span class="keyword" style="color: #c084fc;">if</span> (nota &gt;= <span class="val">7</span>) {<br>
+                &nbsp;&nbsp;console.log(<span class="val">'aprovado'</span>);<br>
+                } <span class="keyword" style="color: #c084fc;">else</span> <span class="keyword" style="color: #c084fc;">if</span> (nota &gt;= <span class="val">5</span>) {<br>
+                &nbsp;&nbsp;console.log(<span class="val">'recuperação'</span>);<br>
+                } <span class="keyword" style="color: #c084fc;">else</span> {<br>
+                &nbsp;&nbsp;console.log(<span class="val">'reprovado'</span>);<br>
+                }<br><br>
+                <span class="comment">// combinar condições</span><br>
+                <span class="keyword" style="color: #c084fc;">if</span> (logado &amp;&amp; idade &gt;= <span class="val">18</span>) { … }<br>
+                <span class="keyword" style="color: #c084fc;">if</span> (erro || !conectado) { … }
+            </div>
+        </div>
+        <p style="font-size: 16px; color: #94a3b8; margin-top: 14px; margin-bottom: 0;">Igualdade estrita: <code class="code-inline">===</code> e <code class="code-inline">!==</code> (compara valor <strong>e</strong> tipo). Em condições, valores “falsy” incluem <code class="code-inline">0</code>, <code class="code-inline">''</code>, <code class="code-inline">null</code>, <code class="code-inline">undefined</code>, <code class="code-inline">NaN</code>.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">SINTAXE · <span>FOR E WHILE</span></h2>
+    <div class="content-area">
+        <p style="font-size: 18px; color: #cbd5e1; margin-top: 0; max-width: 780px;"><strong>For</strong> com índice é o clássico “contar até N”. <strong>For…of</strong> percorre valores de um array (ou string). <strong>While</strong> repete enquanto a condição for verdadeira — cuidado com loop infinito.</p>
+        <div class="code-window" style="max-width: 720px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content code-content--compact" style="font-size: 15px;">
+                <span class="keyword" style="color: #c084fc;">for</span> (<span class="keyword" style="color: #c084fc;">let</span> i = <span class="val">0</span>; i &lt; <span class="val">3</span>; i++) {<br>
+                &nbsp;&nbsp;console.log(i); <span class="comment">// 0, 1, 2</span><br>
+                }<br><br>
+                <span class="keyword" style="color: #c084fc;">const</span> nomes = [<span class="val">'Ana'</span>, <span class="val">'Bob'</span>];<br>
+                <span class="keyword" style="color: #c084fc;">for</span> (<span class="keyword" style="color: #c084fc;">const</span> n <span class="keyword" style="color: #c084fc;">of</span> nomes) {<br>
+                &nbsp;&nbsp;console.log(n);<br>
+                }<br><br>
+                <span class="keyword" style="color: #c084fc;">let</span> n = <span class="val">0</span>;<br>
+                <span class="keyword" style="color: #c084fc;">while</span> (n &lt; <span class="val">5</span>) {<br>
+                &nbsp;&nbsp;n++;<br>
+                }
+            </div>
+        </div>
+        <p style="font-size: 16px; color: #94a3b8; margin-top: 14px; margin-bottom: 0;">No front-end, laços aparecem ao montar listas no DOM ou ao processar dados — aqui só o desenho da linguagem.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">SINTAXE · <span>TRY / CATCH</span></h2>
+    <div class="content-area">
+        <p style="font-size: 18px; color: #cbd5e1; margin-top: 0; max-width: 780px;">Código que <strong>pode falhar</strong> (rede, JSON inválido, <code class="code-inline">sessionStorage</code> bloqueado) vai no <code class="code-inline">try</code>. Se der erro, o fluxo salta para <code class="code-inline">catch</code>. <code class="code-inline">finally</code> roda sempre — útil para fechar recursos.</p>
+        <div class="code-window" style="max-width: 720px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content code-content--compact" style="font-size: 15px;">
+                <span class="keyword" style="color: #c084fc;">try</span> {<br>
+                &nbsp;&nbsp;sessionStorage.setItem(<span class="val">'chave'</span>, <span class="val">'1'</span>);<br>
+                &nbsp;&nbsp;<span class="comment">// algo que pode lançar exceção</span><br>
+                } <span class="keyword" style="color: #c084fc;">catch</span> (err) {<br>
+                &nbsp;&nbsp;console.warn(<span class="val">'Não foi possível gravar:'</span>, err);<br>
+                } <span class="keyword" style="color: #c084fc;">finally</span> {<br>
+                &nbsp;&nbsp;<span class="comment">// opcional: sempre executa</span><br>
+                }
+            </div>
+        </div>
+        <p style="font-size: 16px; color: #94a3b8; margin-top: 14px; margin-bottom: 0;">No <strong>perfil.js</strong>, o <code class="code-inline">try/catch</code> em volta do <code class="code-inline">sessionStorage</code> evita quebrar a página se o navegador bloquear armazenamento.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">FUNÇÕES</h2>
+    <div class="content-area">
+        <p style="font-size: 20px; max-width: 720px;">Agrupam passos reutilizáveis. No <strong>perfil.js</strong>, a função interna <code class="code-inline">atualizaBotaoTopo</code> roda a cada rolagem:</p>
+        <div class="code-window" style="max-width: 720px; margin-top: 12px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content code-content--compact" style="font-size: 15px;">
+                <span class="keyword" style="color: #c084fc;">function</span> atualizaBotaoTopo() {<br>
+                &nbsp;&nbsp;<span class="keyword" style="color: #c084fc;">var</span> scrollou = <span class="val">window</span>.scrollY &gt; <span class="val">300</span>;<br>
+                &nbsp;&nbsp;btnTopo.hidden = !scrollou;<br>
+                }
+            </div>
+        </div>
+        <p style="margin-top: 14px; font-size: 17px; color: #94a3b8;">Funções genéricas usam <code class="code-inline">return</code>; esta só atualiza o estado do botão.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">DOM: A ÁRVORE DA <span>PÁGINA</span></h2>
+    <div class="content-area">
+        <div class="two-column" style="align-items: start; gap: 28px;">
+            <div>
+                <p style="font-size: 19px; margin-top: 0;">O navegador monta uma árvore a partir do HTML. Tudo passa pelo objeto <code class="code-inline">document</code>.</p>
+                <ul style="font-size: 18px; margin: 12px 0 0; padding-left: 1.2rem;">
+                    <li style="margin-bottom: 8px;">Cada tag vira um <strong>elemento</strong> com propriedades e métodos.</li>
+                    <li>Busca por <strong>id</strong>, <strong>classe</strong> ou seletor CSS.</li>
+                </ul>
+            </div>
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content code-content--compact" style="font-size: 14px; line-height: 1.5;">
+                    <span class="comment">// ideia da hierarquia (simplificado)</span><br>
+                    document<br>
+                    └── <span class="val">html</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;├── <span class="val">head</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;└── <span class="val">body</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── <span class="val">header#topo</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── <span class="val">main</span> … <span class="val">section#sobre</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <span class="val">footer#contato</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">BUSCAR <span>ELEMENTOS</span></h2>
+    <div class="content-area">
+        <pre style="background: #0f172a; padding: 24px; border-radius: 12px; border: 1px solid #334155; font-family: 'JetBrains Mono', monospace; font-size: 17px; overflow-x: auto; text-align: left; width: 100%; max-width: 720px;"><code>document.getElementById('rodape-ano');
+document.querySelector('.cartao');</code></pre>
+        <p style="margin-top: 16px; color: #94a3b8;">Prefira <code class="code-inline">getElementById</code> quando há um id único — é direto e rápido.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">ALTERAR <span>TEXTO</span></h2>
+    <div class="content-area">
+        <p style="font-size: 22px;">A propriedade <code class="code-inline">textContent</code> define o texto visível dentro do elemento (seguro para texto simples).</p>
+        <pre style="background: #0f172a; padding: 24px; border-radius: 12px; border: 1px solid #334155; font-family: 'JetBrains Mono', monospace; font-size: 17px; overflow-x: auto; text-align: left; width: 100%; max-width: 560px; margin-top: 16px;"><code>elemento.textContent = 'Novo texto';</code></pre>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">CLASSES NO JS: <span>classList</span></h2>
+    <div class="content-area">
+        <pre style="background: #0f172a; padding: 24px; border-radius: 12px; border: 1px solid #334155; font-family: 'JetBrains Mono', monospace; font-size: 16px; overflow-x: auto; text-align: left; width: 100%; max-width: 640px;"><code>el.classList.add('ativo');
+el.classList.remove('ativo');
+el.classList.toggle('visivel');</code></pre>
+        <p style="margin-top: 16px;">Combine com CSS: o JS só alterna classes; o visual continua no arquivo <code class="code-inline">.css</code>.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">EVENTOS: <span>addEventListener</span></h2>
+    <div class="content-area">
+        <pre style="background: #0f172a; padding: 24px; border-radius: 12px; border: 1px solid #334155; font-family: 'JetBrains Mono', monospace; font-size: 16px; overflow-x: auto; text-align: left; width: 100%; max-width: 720px;"><code>botao.addEventListener('click', function () {
+  console.log('Clicou!');
+});</code></pre>
+        <p style="margin-top: 16px;">Outros eventos comuns: <code class="code-inline">'scroll'</code>, <code class="code-inline">'keydown'</code>, <code class="code-inline">'submit'</code>.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">EVENTO <span>SCROLL</span></h2>
+    <div class="content-area">
+        <p style="font-size: 19px; max-width: 720px;">Dispara enquanto a página rola. Lemos <code class="code-inline">window.scrollY</code> e atualizamos o botão (trecho no espírito do <strong>perfil.js</strong>):</p>
+        <div class="code-window" style="max-width: 720px; margin-top: 14px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content code-content--compact" style="font-size: 14px;">
+                <span class="val">window</span>.addEventListener(<span class="val">'scroll'</span>, atualizaBotaoTopo, {<br>
+                &nbsp;&nbsp;passive: <span class="val">true</span><br>
+                });
+            </div>
+        </div>
+        <p style="margin-top: 12px; font-size: 17px; color: #94a3b8;">Use <code class="code-inline">{ passive: true }</code> quando não chamar <code class="code-inline">preventDefault</code> — o navegador otimiza a rolagem.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">DATA: <span>new Date()</span></h2>
+    <div class="content-area">
+        <p style="font-size: 22px;">O objeto <code class="code-inline">Date</code> representa um instante. Para o ano atual no rodapé:</p>
+        <pre style="background: #0f172a; padding: 24px; border-radius: 12px; border: 1px solid #334155; font-family: 'JetBrains Mono', monospace; font-size: 17px; overflow-x: auto; text-align: left; width: 100%; max-width: 520px; margin-top: 16px;"><code>new Date().getFullYear();</code></pre>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">ARMAZENAMENTO: <span>sessionStorage</span></h2>
+    <div class="content-area">
+        <p style="font-size: 22px; max-width: 760px;"><code class="code-inline">sessionStorage</code> guarda pares chave/valor só enquanto a <strong>aba</strong> está aberta. Fechou a aba, os dados somem — útil para “primeira visita nesta sessão”.</p>
+        <pre style="background: #0f172a; padding: 24px; border-radius: 12px; border: 1px solid #334155; font-family: 'JetBrains Mono', monospace; font-size: 16px; overflow-x: auto; text-align: left; width: 100%; max-width: 680px; margin-top: 16px;"><code>sessionStorage.setItem('chave', 'valor');
+sessionStorage.getItem('chave');</code></pre>
+        <p style="margin-top: 12px; color: #94a3b8;"><code class="code-inline">localStorage</code> persiste mesmo fechando o navegador — use quando fizer sentido.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">ROLAR COM SUAVIDADE</h2>
+    <div class="content-area">
+        <div class="two-column" style="align-items: start; gap: 24px;">
+            <div>
+                <p style="font-size: 18px; margin-top: 0;">No <strong>HTML</strong>, links para seções do mesmo arquivo:</p>
+                <div class="code-window">
+                    <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                    <div class="code-content code-content--compact" style="font-size: 13px;">
+                        &lt;<span class="tag">nav</span> <span class="attr">aria-label</span>=<span class="val">"Ir para seção"</span>&gt;<br>
+                        &nbsp;&nbsp;&lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="val">"#sobre"</span>&gt;Sobre&lt;/<span class="tag">a</span>&gt;<br>
+                        &nbsp;&nbsp;&lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="val">"#contato"</span>&gt;Contato&lt;/<span class="tag">a</span>&gt;<br>
+                        &lt;/<span class="tag">nav</span>&gt;
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p style="font-size: 18px; margin-top: 0;">No <strong>CSS</strong> (global) e no <strong>JS</strong> (botão):</p>
+                <div class="code-window">
+                    <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                    <div class="code-content code-content--compact" style="font-size: 13px;">
+                        <span class="tag">html</span> { <span class="attr">scroll-behavior</span>: <span class="val">smooth</span>; }<br><br>
+                        <span class="val">alvoTopo</span>.scrollIntoView({<br>
+                        &nbsp;&nbsp;behavior: <span class="val">'smooth'</span>, block: <span class="val">'start'</span><br>
+                        });
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">BOAS PRÁTICAS <span>RÁPIDAS</span></h2>
+    <div class="content-area">
+        <div class="two-column" style="align-items: start; gap: 28px;">
+            <ul style="font-size: 18px; margin: 0; padding-left: 1.2rem;">
+                <li style="margin-bottom: 12px;"><i class="fa-solid fa-check" style="color: #22c55e;"></i> Script no fim do <code class="code-inline">body</code> ou com <code class="code-inline">defer</code>.</li>
+                <li style="margin-bottom: 12px;"><i class="fa-solid fa-check" style="color: #22c55e;"></i> <strong>IIFE</strong> envolve o arquivo para não criar variáveis globais soltas.</li>
+                <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Se algo falhar, leia o erro no <strong>Console</strong>.</li>
+            </ul>
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content code-content--compact" style="font-size: 14px;">
+                    (<span class="keyword" style="color: #c084fc;">function</span> () {<br>
+                    &nbsp;&nbsp;<span class="val">'use strict'</span>;<br>
+                    &nbsp;&nbsp;<span class="comment">// seu código aqui</span><br>
+                    })();
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">EXERCÍCIO: <span>PERFIL + JS</span></h2>
+    <div class="content-area">
+        <p style="font-size: 19px; max-width: 760px;">Use o mesmo perfil dos módulos anteriores. Referência completa no exemplo <code class="code-inline">exemplos/js/perfil.js</code>. Objetivos:</p>
+        <ul style="margin-top: 16px; font-size: 20px;">
+            <li><i class="fa-solid fa-circle-dot" style="color: #eab308;"></i> Arquivo <code class="code-inline">perfil.js</code> ligado com <code class="code-inline">defer</code>.</li>
+            <li><i class="fa-solid fa-circle-dot" style="color: #eab308;"></i> Ano no rodapé atualizado com JavaScript.</li>
+            <li><i class="fa-solid fa-circle-dot" style="color: #eab308;"></i> Botão fixo que aparece ao rolar e volta ao topo suavemente.</li>
+            <li><i class="fa-solid fa-circle-dot" style="color: #eab308;"></i> Mensagem diferente na primeira vez que a aba abre a página (<code class="code-inline">sessionStorage</code>).</li>
+            <li><i class="fa-solid fa-circle-dot" style="color: #eab308;"></i> Mini-menu no hero com links para <code class="code-inline">#sobre</code>, <code class="code-inline">#habilidades</code>, <code class="code-inline">#contato</code>.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 1: <span>HTML</span> · CABEÇALHO E SEÇÕES</h2>
+    <div class="content-area">
+        <p style="font-size: 17px; color: #94a3b8; margin-top: 0;">Âncoras para o menu e <code class="code-inline">id="topo"</code> para o botão voltar:</p>
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content code-content--compact" style="font-size: 13px;">
+                &lt;<span class="tag">header</span> <span class="attr">class</span>=<span class="val">"perfil-hero"</span> <span class="attr">id</span>=<span class="val">"topo"</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">h1</span>&gt;…&lt;/<span class="tag">h1</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">nav</span> <span class="attr">class</span>=<span class="val">"perfil-hero__nav"</span> <span class="attr">aria-label</span>=<span class="val">"Ir para seção"</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="val">"#sobre"</span>&gt;Sobre&lt;/<span class="tag">a</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="val">"#habilidades"</span>&gt;Habilidades&lt;/<span class="tag">a</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="val">"#contato"</span>&gt;Contato&lt;/<span class="tag">a</span>&gt;<br>
+                &nbsp;&nbsp;&lt;/<span class="tag">nav</span>&gt;<br>
+                &lt;/<span class="tag">header</span>&gt;<br><br>
+                &lt;<span class="tag">main</span> <span class="attr">class</span>=<span class="val">"perfil-main"</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">section</span> <span class="attr">class</span>=<span class="val">"cartao"</span> <span class="attr">id</span>=<span class="val">"sobre"</span>&gt; … &lt;/<span class="tag">section</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">section</span> <span class="attr">class</span>=<span class="val">"cartao"</span> <span class="attr">id</span>=<span class="val">"habilidades"</span>&gt; … &lt;/<span class="tag">section</span>&gt;<br>
+                &lt;/<span class="tag">main</span>&gt;
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 1: <span>HTML</span> · RODAPÉ, BOTÃO E SCRIPT</h2>
+    <div class="content-area">
+        <p style="font-size: 18px; color: #cbd5e1; margin-top: 0; margin-bottom: 18px; max-width: 920px;">No rodapé, guardamos os pontos que o JS vai preencher: o parágrafo <code class="code-inline">#msg-visita</code> recebe a mensagem da sessão; o <code class="code-inline">&lt;span id="rodape-ano"&gt;</code> recebe o ano. Fora do <code class="code-inline">footer</code>, o botão <code class="code-inline">#btn-voltar-topo</code> começa com <code class="code-inline">hidden</code> até o script decidir exibi-lo. Por último, o <code class="code-inline">&lt;script defer&gt;</code> carrega <strong>perfil.js</strong> depois do HTML.</p>
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content code-content--compact" style="font-size: 13px;">
+                &lt;<span class="tag">footer</span> <span class="attr">class</span>=<span class="val">"perfil-rodape"</span> <span class="attr">id</span>=<span class="val">"contato"</span>&gt;<br>
+                &nbsp;&nbsp;… tabela de contato …<br>
+                &nbsp;&nbsp;&lt;<span class="tag">p</span> <span class="attr">class</span>=<span class="val">"perfil-rodape__extras"</span> <span class="attr">id</span>=<span class="val">"msg-visita"</span> <span class="attr">role</span>=<span class="val">"status"</span>&gt;&lt;/<span class="tag">p</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">p</span> <span class="attr">class</span>=<span class="val">"perfil-rodape__copy"</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;© &lt;<span class="tag">span</span> <span class="attr">id</span>=<span class="val">"rodape-ano"</span>&gt;&lt;/<span class="tag">span</span>&gt; Nome — …<br>
+                &nbsp;&nbsp;&lt;/<span class="tag">p</span>&gt;<br>
+                &lt;/<span class="tag">footer</span>&gt;<br><br>
+                &lt;<span class="tag">button</span> <span class="attr">type</span>=<span class="val">"button"</span> <span class="attr">id</span>=<span class="val">"btn-voltar-topo"</span> <span class="attr">class</span>=<span class="val">"btn-voltar-topo"</span> <span class="attr">hidden</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attr">aria-hidden</span>=<span class="val">"true"</span> <span class="attr">aria-label</span>=<span class="val">"Voltar ao topo"</span>&gt;↑&lt;/<span class="tag">button</span>&gt;<br><br>
+                &lt;<span class="tag">script</span> <span class="attr">src</span>=<span class="val">"perfil.js"</span> <span class="attr">defer</span>&gt;&lt;/<span class="tag">script</span>&gt;
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 1: <span>CSS</span> · VISÃO GERAL</h2>
+    <div class="content-area">
+        <p style="font-size: 19px; color: #cbd5e1; margin-top: 0; margin-bottom: 20px; max-width: 880px;">O arquivo <code class="code-inline">exemplos/js/estilo.css</code> copia o visual do exemplo “Perfil + CSS” e acrescenta regras só para o que o <strong>JavaScript</strong> e os novos elementos pedem. Assim o HTML/CSS base não mudam à toa: cada bloco novo tem um propósito.</p>
+        <ul style="font-size: 18px; line-height: 1.55; margin: 0; padding-left: 1.25rem; max-width: 880px;">
+            <li style="margin-bottom: 14px;"><strong>Rolagem e menu</strong> — <code class="code-inline">scroll-behavior</code> no <code class="code-inline">html</code> e estilos do mini-menu <code class="code-inline">.perfil-hero__nav</code> (links para <code class="code-inline">#sobre</code>, etc.).</li>
+            <li style="margin-bottom: 14px;"><strong>Mensagem dinâmica</strong> — classe <code class="code-inline">.perfil-rodape__extras</code> envolve o parágrafo onde o JS escreve o texto da sessão.</li>
+            <li><strong>Botão “voltar ao topo”</strong> — classe <code class="code-inline">.btn-voltar-topo</code>: fixo no canto, circular, com estados de hover e foco.</li>
+        </ul>
+        <p style="font-size: 17px; color: #94a3b8; margin-top: 22px; margin-bottom: 0;">Os próximos slides detalham cada grupo com o código.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 1: <span>CSS</span> · ROLAGEM E MENU DO HERO</h2>
+    <div class="content-area">
+        <div class="two-column" style="align-items: start; gap: 26px;">
+            <div>
+                <p style="font-size: 18px; color: #cbd5e1; margin-top: 0;">Com <code class="code-inline">scroll-behavior: smooth</code> no elemento raiz, qualquer navegação por âncora (links do menu ou <code class="code-inline">scrollIntoView</code> no JS) ganha transição suave em vez de “pulo” seco.</p>
+                <p style="font-size: 18px; color: #cbd5e1;">O <code class="code-inline">.perfil-hero__nav</code> usa <strong>flex</strong> para centralizar e envolver os links; cada <code class="code-inline">a</code> vira uma “pílula” com borda verde clara e, no <code class="code-inline">:hover</code>, fundo branco e sombra leve — combina com o header verde-claro do perfil.</p>
+            </div>
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div><span style="margin-left:12px;color:#94a3b8;font-size:13px;">estilo.css</span></div>
+                <div class="code-content code-content--compact" style="font-size: 13px; line-height: 1.5;">
+                    <span class="tag">html</span> {<br>
+                    &nbsp;&nbsp;<span class="attr">scroll-behavior</span>: <span class="val">smooth</span>;<br>
+                    }<br><br>
+                    <span class="tag">.perfil-hero__nav</span> {<br>
+                    &nbsp;&nbsp;<span class="attr">display</span>: <span class="val">flex</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">flex-wrap</span>: <span class="val">wrap</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">justify-content</span>: <span class="val">center</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">gap</span>: <span class="val">0.5rem 0.75rem</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">margin-top</span>: <span class="val">1.25rem</span>;<br>
+                    }<br><br>
+                    <span class="tag">.perfil-hero__nav a</span> {<br>
+                    &nbsp;&nbsp;<span class="attr">border-radius</span>: <span class="val">999px</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">padding</span>: <span class="val">0.4rem 0.95rem</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">border</span>: <span class="val">1px solid #a7f3d0</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">transition</span>: <span class="val">background 0.2s</span>, <span class="val">box-shadow 0.2s</span>;<br>
+                    }<br>
+                    <span class="tag">.perfil-hero__nav a:hover</span> {<br>
+                    &nbsp;&nbsp;<span class="attr">background</span>: <span class="val">#fff</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">box-shadow</span>: <span class="val">0 2px 8px rgba(4, 120, 87, 0.12)</span>;<br>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 1: <span>CSS</span> · MENSAGEM NO RODAPÉ</h2>
+    <div class="content-area">
+        <div class="two-column" style="align-items: start; gap: 26px;">
+            <div>
+                <p style="font-size: 18px; color: #cbd5e1; margin-top: 0;">O parágrafo <code class="code-inline">#msg-visita</code> usa a classe <strong><code class="code-inline">perfil-rodape__extras</code></strong>: mesmo quando o texto ainda não foi escrito pelo JS, a caixa já tem aparência de “avisinho” — fundo verde bem claro, borda suave e cantos arredondados, alinhada ao restante da página.</p>
+                <p style="font-size: 17px; color: #94a3b8;">No mesmo arquivo, <code class="code-inline">.perfil-rodape__extras:empty { display: none }</code> evita mostrar a caixa se o parágrafo estiver vazio (por exemplo sem texto e sem o JS ter rodado).</p>
+            </div>
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div><span style="margin-left:12px;color:#94a3b8;font-size:13px;">estilo.css</span></div>
+                <div class="code-content code-content--compact" style="font-size: 13px; line-height: 1.5;">
+                    <span class="tag">.perfil-rodape__extras</span> {<br>
+                    &nbsp;&nbsp;<span class="attr">margin</span>: <span class="val">1.25rem 0 0.75rem</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">padding</span>: <span class="val">0.85rem 1rem</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">background</span>: <span class="val">#ecfdf5</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">border-radius</span>: <span class="val">10px</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">border</span>: <span class="val">1px solid #a7f3d0</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">font-size</span>: <span class="val">0.95rem</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">color</span>: <span class="val">#374151</span>;<br>
+                    }<br><br>
+                    <span class="tag">.perfil-rodape__extras:empty</span> {<br>
+                    &nbsp;&nbsp;<span class="attr">display</span>: <span class="val">none</span>;<br>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 1: <span>CSS</span> · BOTÃO VOLTAR AO TOPO</h2>
+    <div class="content-area">
+        <div class="two-column" style="align-items: start; gap: 26px;">
+            <div>
+                <p style="font-size: 18px; color: #cbd5e1; margin-top: 0;">O botão fica <strong>fixo</strong> no canto inferior direito (<code class="code-inline">position: fixed</code> + <code class="code-inline">z-index</code>), em formato de <strong>círculo</strong>, cor verde escura da paleta e sombra para “levantar” da página. No <code class="code-inline">:hover</code> escurece um pouco e aumenta levemente de tamanho; no <code class="code-inline">:focus-visible</code> aparece contorno verde para quem navega com teclado.</p>
+            </div>
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div><span style="margin-left:12px;color:#94a3b8;font-size:13px;">estilo.css</span></div>
+                <div class="code-content code-content--compact" style="font-size: 12px; line-height: 1.45;">
+                    <span class="tag">.btn-voltar-topo</span> {<br>
+                    &nbsp;&nbsp;<span class="attr">position</span>: <span class="val">fixed</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">bottom</span>: <span class="val">1.35rem</span>; <span class="attr">right</span>: <span class="val">1.35rem</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">width</span>: <span class="val">3rem</span>; <span class="attr">height</span>: <span class="val">3rem</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">border</span>: <span class="val">none</span>; <span class="attr">border-radius</span>: <span class="val">50%</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">background</span>: <span class="val">#047857</span>; <span class="attr">color</span>: <span class="val">#fff</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">cursor</span>: <span class="val">pointer</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">box-shadow</span>: <span class="val">0 4px 14px rgba(4, 120, 87, 0.45)</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">z-index</span>: <span class="val">60</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">display</span>: <span class="val">flex</span>; <span class="attr">align-items</span>: <span class="val">center</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">justify-content</span>: <span class="val">center</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">transition</span>: <span class="val">background 0.2s</span>, <span class="val">transform 0.2s</span>;<br>
+                    }<br><br>
+                    <span class="tag">.btn-voltar-topo:hover</span> {<br>
+                    &nbsp;&nbsp;<span class="attr">background</span>: <span class="val">#065f46</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">transform</span>: <span class="val">scale(1.05)</span>;<br>
+                    }<br><br>
+                    <span class="tag">.btn-voltar-topo:focus-visible</span> {<br>
+                    &nbsp;&nbsp;<span class="attr">outline</span>: <span class="val">3px solid #10b981</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">outline-offset</span>: <span class="val">3px</span>;<br>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 2: <span>ANO NO RODAPÉ</span></h2>
+    <div class="content-area">
+        <div class="two-column" style="align-items: start; gap: 24px;">
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div><span style="margin-left:12px;color:#94a3b8;font-size:13px;">perfil.js</span></div>
+                <div class="code-content code-content--compact" style="font-size: 14px;">
+                    <span class="keyword" style="color: #c084fc;">var</span> anoSpan = document.getElementById(<span class="val">'rodape-ano'</span>);<br><br>
+                    <span class="keyword" style="color: #c084fc;">if</span> (anoSpan) {<br>
+                    &nbsp;&nbsp;anoSpan.textContent = String(<span class="keyword" style="color: #c084fc;">new</span> Date().getFullYear());<br>
+                    }
+                </div>
+            </div>
+            <div>
+                <p style="font-size: 17px; margin-top: 0;"><strong>No HTML</strong> o ano começa vazio — o JS preenche ao carregar:</p>
+                <div class="code-window">
+                    <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div><span style="margin-left:12px;color:#94a3b8;font-size:13px;">index.html</span></div>
+                    <div class="code-content code-content--compact" style="font-size: 13px;">
+                        © &lt;<span class="tag">span</span> <span class="attr">id</span>=<span class="val">"rodape-ano"</span>&gt;&lt;/<span class="tag">span</span>&gt; Helena …
+                    </div>
+                </div>
+                <p style="margin-top: 12px; font-size: 16px; color: #94a3b8;">O <code class="code-inline">if (anoSpan)</code> evita erro se o id não existir na página.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 3: <span>BOTÃO VOLTAR AO TOPO</span></h2>
+    <div class="content-area">
+        <p style="font-size: 16px; color: #94a3b8; margin-top: 0;">Mesma lógica do <strong>perfil.js</strong>: referências, função no scroll, listener <code class="code-inline">passive</code> e clique.</p>
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div><span style="margin-left:12px;color:#94a3b8;font-size:13px;">perfil.js (trecho)</span></div>
+            <div class="code-content code-content--compact" style="font-size: 12px; line-height: 1.45;">
+                <span class="keyword" style="color: #c084fc;">var</span> btnTopo = document.getElementById(<span class="val">'btn-voltar-topo'</span>);<br>
+                <span class="keyword" style="color: #c084fc;">var</span> alvoTopo = document.getElementById(<span class="val">'topo'</span>);<br><br>
+                <span class="keyword" style="color: #c084fc;">if</span> (btnTopo && alvoTopo) {<br>
+                &nbsp;&nbsp;<span class="keyword" style="color: #c084fc;">function</span> atualizaBotaoTopo() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword" style="color: #c084fc;">var</span> scrollou = window.scrollY > <span class="val">300</span>;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;btnTopo.hidden = !scrollou;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;btnTopo.setAttribute(<span class="val">'aria-hidden'</span>, scrollou ? <span class="val">'false'</span> : <span class="val">'true'</span>);<br>
+                &nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;atualizaBotaoTopo();<br>
+                &nbsp;&nbsp;window.addEventListener(<span class="val">'scroll'</span>, atualizaBotaoTopo, { passive: <span class="val">true</span> });<br><br>
+                &nbsp;&nbsp;btnTopo.addEventListener(<span class="val">'click'</span>, <span class="keyword" style="color: #c084fc;">function</span> () {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;alvoTopo.scrollIntoView({ behavior: <span class="val">'smooth'</span>, block: <span class="val">'start'</span> });<br>
+                &nbsp;&nbsp;});<br>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 4: <span>sessionStorage</span></h2>
+    <div class="content-area">
+        <p style="font-size: 16px; color: #94a3b8; margin-top: 0;">Texto em <code class="code-inline">#msg-visita</code> conforme a primeira carga na aba; <code class="code-inline">try/catch</code> cobre navegação privada ou bloqueio.</p>
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div><span style="margin-left:12px;color:#94a3b8;font-size:13px;">perfil.js (trecho)</span></div>
+            <div class="code-content code-content--compact" style="font-size: 12px; line-height: 1.45;">
+                <span class="keyword" style="color: #c084fc;">var</span> msgVisita = document.getElementById(<span class="val">'msg-visita'</span>);<br><br>
+                <span class="keyword" style="color: #c084fc;">if</span> (msgVisita) {<br>
+                &nbsp;&nbsp;<span class="keyword" style="color: #c084fc;">try</span> {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword" style="color: #c084fc;">if</span> (!sessionStorage.getItem(<span class="val">'perfilVisitou'</span>)) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sessionStorage.setItem(<span class="val">'perfilVisitou'</span>, <span class="val">'1'</span>);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msgVisita.textContent = <span class="val">'Obrigada por visitar…'</span>;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;} <span class="keyword" style="color: #c084fc;">else</span> {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msgVisita.textContent = <span class="val">'Nesta aba você já abriu…'</span>;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;} <span class="keyword" style="color: #c084fc;">catch</span> (err) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;msgVisita.textContent = <span class="val">''</span>;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;msgVisita.style.display = <span class="val">'none'</span>;<br>
+                &nbsp;&nbsp;}<br>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 5: <span>REVISÃO</span></h2>
+    <div class="content-area">
+        <div class="two-column" style="align-items: start; gap: 24px;">
+            <ul style="font-size: 18px; margin: 0; padding-left: 1.2rem;">
+                <li style="margin-bottom: 10px;">Com <strong>Live Server</strong>, teste rolagem, botão e links do menu.</li>
+                <li style="margin-bottom: 10px;">Recarregue (<code class="code-inline">F5</code>): mensagem de primeira visita muda na mesma aba.</li>
+                <li style="margin-bottom: 10px;">Nova aba: mensagem “primeira vez” volta.</li>
+                <li>No <strong>Console</strong>: <code class="code-inline">document.getElementById('rodape-ano').textContent</code> deve mostrar o ano.</li>
+            </ul>
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div><span style="margin-left:12px;color:#94a3b8;font-size:13px;">Console (F12)</span></div>
+                <div class="code-content code-content--compact" style="font-size: 14px;">
+                    document.getElementById(<span class="val">'rodape-ano'</span>).textContent<br>
+                    sessionStorage.getItem(<span class="val">'perfilVisitou'</span>)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">CHECKLIST DE <span>CONQUISTA (JS)</span></h2>
+    <div class="content-area">
+        <ul>
+            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Sei incluir um arquivo <strong>.js</strong> com <code class="code-inline">defer</code>.</li>
+            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Consigo usar <strong>getElementById</strong> e <strong>textContent</strong>.</li>
+            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Entendo <strong>addEventListener</strong> para clique e scroll.</li>
+            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Uso <strong>Date</strong> e <strong>sessionStorage</strong> em casos simples.</li>
+            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Integrei JS no <strong>perfil</strong> sem quebrar HTML/CSS.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="slide-container">
+  <div class="content-area" style="text-align: center;">
+    <h2 style="font-size: 60px; color: #22c55e;">PARABÉNS!</h2>
+    <p style="margin-top: 30px; font-size: 26px;">Sua página agora reage a quem a usa.</p>
+    <p style="margin-top: 60px; font-size: 18px; opacity: 0.85;"><a href="GitHub-Pages.html" style="color: #a855f7; font-weight: 600; text-decoration: none;">Módulo 4 · GitHub Pages</a> — publicar seu site em github.io</p>
+  </div>
+</div>
+
+<div class="slide-container">
+    <div class="content-area" style="text-align: center;">
+        <h2 style="font-size: 50px; color: #fff;">CONTINUE<br><span style="color: #eab308;">EXPERIMENTANDO</span></h2>
+        <p style="margin-top: 30px;">Pequenos scripts no Console fortalecem a leitura de erros e a lógica.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <div class="content-area" style="text-align: center; align-items: center;">
+        <h2 class="slide-title" style="border: none; padding: 0; text-align: center; margin-bottom: 16px;">EXEMPLO: <span>PERFIL COM JS</span></h2>
+        <p style="font-size: 22px; color: #94a3b8; max-width: 640px;">Mesma página de perfil estilizada, com <strong>perfil.js</strong>: ano dinâmico, mensagem por sessão, botão flutuante e navegação suave.</p>
+        <a href="exemplos/js/index.html" class="slide-example-btn"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Abrir exemplo de perfil (HTML + CSS + JS)</a>
+    </div>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

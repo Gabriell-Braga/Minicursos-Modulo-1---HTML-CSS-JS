@@ -1,0 +1,345 @@
+/* 1. SETUP E ESTILO GLOBAL */
+* { box-sizing: border-box; }
+body {
+  background-color: #0f172a;
+  margin: 0;
+  min-height: 100vh;
+  padding: 0;
+  padding-top: 112px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* Páginas de exemplo (só header global, sem barra de slides) */
+body.page-exemplo {
+  padding-top: 48px;
+  display: block;
+  align-items: unset;
+  width: 100%;
+  background: #ffffff;
+  color: #0f172a;
+}
+/* Tipografia do conteúdo do tutorial (só na página “Perfil + CSS”; HTML puro usa só o padrão do navegador) */
+body.page-exemplo:not(.exemplo-html-puro) .perfil-hero h1 {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  text-align: center;
+  text-transform: none;
+  letter-spacing: normal;
+  line-height: 1.2;
+}
+body.page-exemplo:not(.exemplo-html-puro) main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 2rem;
+}
+body.page-exemplo:not(.exemplo-html-puro) section {
+  margin-bottom: 1.75rem;
+}
+body.page-exemplo:not(.exemplo-html-puro) main p,
+body.page-exemplo:not(.exemplo-html-puro) main li {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: #334155;
+}
+body.page-exemplo:not(.exemplo-html-puro) main ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+body.page-exemplo:not(.exemplo-html-puro) section img {
+  max-width: 200px;
+  height: auto;
+  display: block;
+  margin-top: 1rem;
+}
+/* Navegação entre apresentações (HTML / CSS) */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 48px;
+  padding: 8px 20px;
+  background: #020617;
+  border-bottom: 1px solid #1e293b;
+  font-family: 'Urbanist', sans-serif;
+}
+.site-header__group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.site-header__label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-right: 4px;
+}
+.site-header__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.site-header__link:hover {
+  background: #1e293b;
+  border-color: #475569;
+  color: #e2e8f0;
+}
+.site-header__link--current {
+  border-color: #22c55e;
+  color: #22c55e;
+  background: rgba(34, 197, 94, 0.1);
+  pointer-events: none;
+}
+/* Botão nos slides finais → exemplos */
+.slide-example-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding: 16px 32px;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #020617;
+  background: #22c55e;
+  border: 2px solid #4ade80;
+  border-radius: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 8px 24px rgba(34, 197, 94, 0.35);
+}
+.slide-example-btn:hover {
+  background: #4ade80;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(34, 197, 94, 0.45);
+}
+/* Barra de navegação dos slides */
+.slide-controls {
+  position: fixed;
+  top: 48px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  height: 64px;
+  padding: 0 24px;
+  background: linear-gradient(180deg, #020617 0%, #0f172a 100%);
+  border-bottom: 1px solid #1e293b;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  font-family: 'Urbanist', sans-serif;
+}
+.slide-controls button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  background: #1e293b;
+  color: #22c55e;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+}
+.slide-controls button:hover:not(:disabled) {
+  background: #334155;
+  border-color: #22c55e;
+  color: #4ade80;
+}
+.slide-controls button:active:not(:disabled) {
+  transform: scale(0.96);
+}
+.slide-controls button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+#slide-counter {
+  min-width: 100px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #94a3b8;
+  user-select: none;
+}
+#slide-counter .current { color: #22c55e; }
+.slides-deck {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 24px 16px 40px;
+  min-height: calc(100vh - 112px);
+}
+.slides-deck .slide-container {
+  display: none;
+}
+.slides-deck .slide-container.is-active {
+  display: flex;
+}
+.slide-container {
+  align-items: center;
+  background-color: #020617;
+  border-radius: 16px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Urbanist', sans-serif;
+  height: 720px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 60px 80px;
+  position: relative;
+  width: 1280px;
+  color: #f8fafc;
+  border: 1px solid #1e293b;
+}
+/* DECORAÇÃO DE FUNDO */
+.slide-container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle at 10% 10%, rgba(34, 197, 94, 0.08) 0%, transparent 40%);
+  z-index: 0;
+}
+.slide-container::after {
+  content: '';
+  position: absolute;
+  bottom: 40px; right: 80px;
+  width: 120px; height: 3px;
+  background: #22c55e;
+  opacity: 0.6;
+}
+.slide-container > * { position: relative; z-index: 1; }
+/* 2. TIPOGRAFIA (somente dentro dos slides — não afeta exemplos) */
+.slides-deck h1 { font-size: 85px; font-weight: 800; line-height: 1; text-transform: uppercase; color: #fff; text-align: center; margin: 0; }
+.slides-deck h1 span { color: #22c55e; }
+.slide-title { font-size: 44px; font-weight: 700; margin-bottom: 40px; width: 100%; text-align: left; border-left: 8px solid #22c55e; padding-left: 25px; text-transform: uppercase; letter-spacing: 1px; }
+.slides-deck p,
+.slides-deck li,
+.slides-deck td,
+.slides-deck th { font-size: 22px; line-height: 1.5; color: #94a3b8; }
+.slides-deck strong { color: #22c55e; }
+/* 3. CODE WINDOW (INTERATIVO) */
+.code-window { background-color: #0f172a; border-radius: 12px; border: 1px solid #334155; box-shadow: 0 15px 35px rgba(0,0,0,0.5); font-family: 'JetBrains Mono', monospace; overflow: hidden; width: 100%; margin-top: 10px; }
+.code-header { background-color: #1e293b; padding: 12px 20px; display: flex; gap: 10px; border-bottom: 1px solid #334155; }
+.dot { width: 14px; height: 14px; border-radius: 50%; }
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
+.code-content { padding: 30px; font-size: 20px; color: #cbd5e1; line-height: 1.6; }
+/* Blocos de código longos (ex.: tabela HTML completa) */
+.code-content.code-content--compact {
+  padding: 20px 26px;
+  font-size: 15px;
+  line-height: 1.45;
+}
+.tag { color: #f472b6; }
+.attr { color: #fbbf24; }
+.val { color: #22c55e; }
+.comment { color: #64748b; font-style: italic; }
+/* 4. LAYOUTS */
+.content-area { display: flex; flex-direction: column; flex-grow: 1; justify-content: center; width: 100%; }
+.two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; width: 100%; align-items: center; }
+.two-column.tiles-equal-height {
+  align-items: stretch;
+}
+.two-column.tiles-equal-height .tile {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.image-wrapper { border-radius: 16px; overflow: hidden; border: 1px solid #334155; height: 450px; }
+.image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+.image-wrapper.contain img { object-fit: contain; background: #0f172a; padding: 20px; }
+.tile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; width: 100%; }
+.tile { background: #1e293b; padding: 40px; border-radius: 16px; text-align: center; border: 1px solid #334155; }
+.tile i { font-size: 45px; color: #22c55e; margin-bottom: 25px; }
+.section-title-layout { text-align: center; }
+.section-title-layout h2 { font-size: 65px; color: #22c55e; text-transform: uppercase; margin-bottom: 20px; }
+.section-title-layout hr { width: 150px; height: 8px; background: #22c55e; border: none; margin: 0 auto 30px; }
+.slides-deck table { width: 100%; border-collapse: collapse; }
+.slides-deck th { text-align: left; color: #22c55e; padding: 20px; border-bottom: 3px solid #334155; font-size: 24px; text-transform: uppercase; }
+.slides-deck td { padding: 20px; border-bottom: 1px solid #1e293b; color: #e2e8f0; font-size: 20px; }
+/* Tabela de demonstração com tfoot (slide tfoot) */
+.slide-tfoot-demo {
+  margin-top: 4px;
+  margin-bottom: 22px;
+  width: 100%;
+}
+.slide-tfoot-demo caption {
+  caption-side: top;
+  padding-bottom: 8px;
+  font-size: 19px;
+  font-weight: 600;
+  color: #cbd5e1;
+  text-align: center;
+}
+.slide-tfoot-demo table {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.slide-tfoot-demo tfoot tr {
+  background: rgba(34, 197, 94, 0.12);
+}
+.slide-tfoot-demo tfoot th,
+.slide-tfoot-demo tfoot td {
+  border-top: 2px solid #22c55e;
+  border-bottom: none;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+.slide-tfoot-demo tfoot th {
+  color: #22c55e;
+}
+.slide-tfoot-demo thead th {
+  font-size: 20px;
+  padding: 14px 16px;
+}
+.slide-tfoot-demo tbody td {
+  font-size: 18px;
+  padding: 12px 16px;
+}
+.slide-tfoot-demo tfoot th,
+.slide-tfoot-demo tfoot td {
+  padding: 12px 16px;
+  font-size: 18px;
+}
+/* Código inline nos slides (ex.: JS.html) */
+.code-inline {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.95em;
+  padding: 0.15em 0.4em;
+  background: #1e293b;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  color: #fde68a;
+}

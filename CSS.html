@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 2: CSS3 na Prática — Apresentação</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <div class="site-header__group">
+    <span class="site-header__label">Apresentações</span>
+    <a href="index.html" class="site-header__link"><i class="fa-brands fa-html5" aria-hidden="true"></i> Módulo 1 · HTML</a>
+    <a href="CSS.html" class="site-header__link site-header__link--current" aria-current="page"><i class="fa-brands fa-css3-alt" aria-hidden="true"></i> Módulo 2 · CSS</a>
+    <a href="JS.html" class="site-header__link"><i class="fa-brands fa-js" aria-hidden="true"></i> Módulo 3 · JavaScript</a>
+    <a href="GitHub-Pages.html" class="site-header__link"><i class="fa-brands fa-github" aria-hidden="true"></i> Módulo 4 · GitHub Pages</a>
+  </div>
+  <div class="site-header__group">
+    <span class="site-header__label">Exemplos</span>
+    <a href="exemplos/html/index.html" class="site-header__link"><i class="fa-solid fa-user" aria-hidden="true"></i> Perfil (HTML)</a>
+    <a href="exemplos/css/index.html" class="site-header__link"><i class="fa-solid fa-paintbrush" aria-hidden="true"></i> Perfil + CSS</a>
+    <a href="exemplos/js/index.html" class="site-header__link"><i class="fa-brands fa-js" aria-hidden="true"></i> Perfil + JS</a>
+  </div>
+</header>
+
+<nav class="slide-controls" aria-label="Navegação da apresentação">
+  <button type="button" id="prev-slide" aria-label="Slide anterior"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+  <span id="slide-counter" aria-live="polite"><span class="current">1</span> / <span id="slide-total">—</span></span>
+  <button type="button" id="next-slide" aria-label="Próximo slide"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+</nav>
+
+<div class="slides-deck">
+
+<div class="slide-container is-active" style="background: linear-gradient(rgba(2, 6, 23, 0.92), rgba(2, 6, 23, 0.92)), url('https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?auto=format&fit=crop&w=1920&q=80'); background-size: cover;">
+  <div class="content-area" style="align-items: center;">
+    <h1>MÓDULO 2:<br><span>CSS3 NA PRÁTICA</span></h1>
+    <p style="font-size: 28px; color: #94a3b8; margin-top: 40px; letter-spacing: 4px; font-weight: 500;">ESTILO, LAYOUT E EXPERIÊNCIA VISUAL NA WEB</p>
+  </div>
+</div>
+
+<div class="slide-container">
+    <div class="section-title-layout">
+        <hr>
+        <h2>O Papel do CSS</h2>
+        <p>Da estrutura ao design profissional.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">O TRIPÉ <span>ATUALIZADO</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 28px;"><i class="fa-solid fa-code" style="color: #22c55e;"></i> <strong>HTML:</strong> conteúdo e estrutura.</li>
+                    <li style="margin-bottom: 28px;"><i class="fa-solid fa-palette" style="color: #38bdf8;"></i> <strong>CSS:</strong> cores, fontes, espaçamento e layout.</li>
+                    <li><i class="fa-solid fa-bolt" style="color: #eab308;"></i> <strong>JavaScript:</strong> comportamento e interação.</li>
+                </ul>
+            </div>
+            <div class="image-wrapper contain">
+                <img src="https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=800&q=80" alt="Folhas de estilo">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">O QUE O <span>CSS</span> CONTROLA?</h2>
+    <div class="content-area">
+        <div class="tile-grid">
+            <div class="tile"><i class="fa-solid fa-brush"></i><h3>APARÊNCIA</h3><p>Cores, bordas, sombras e fundos.</p></div>
+            <div class="tile"><i class="fa-solid fa-text-height"></i><h3>TIPOGRAFIA</h3><p>Fontes, tamanhos, peso e espaçamento entre linhas.</p></div>
+            <div class="tile"><i class="fa-solid fa-table-columns"></i><h3>LAYOUT</h3><p>Posição dos blocos: Flexbox, Grid, margens.</p></div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">TRÊS FORMAS DE USAR <span>CSS</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <p><strong>Inline</strong> — no atributo <code>style=""</code> da tag. Rápido para testes, ruim para manutenção.</p>
+                <p><strong>Interno</strong> — dentro de <code>&lt;style&gt;</code> no <code>head</code>. Serve para uma página só.</p>
+                <p><strong>Externo</strong> — arquivo <code>.css</code> linkado. <strong>Recomendado</strong> para projetos reais.</p>
+            </div>
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content" style="font-size: 18px;">
+                    &lt;<span class="tag">link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"estilo.css"</span>&gt;
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">SINTAXE: <span>REGRA CSS</span></h2>
+    <div class="content-area">
+        <p style="margin-bottom: 20px;">Cada regra tem um <strong>seletor</strong> (o quê estilizar) e um bloco <code>{ }</code> com <strong>propriedade: valor;</strong>.</p>
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content">
+                <span class="tag">seletor</span> {<br>
+                &nbsp;&nbsp;<span class="attr">propriedade</span>: <span class="val">valor</span>;<br>
+                &nbsp;&nbsp;<span class="attr">outra-propriedade</span>: <span class="val">valor</span>;<br>
+                }
+            </div>
+        </div>
+        <p style="margin-top: 24px;">Exemplo: <code>h1 { color: #22c55e; font-size: 2rem; }</code></p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">COMENTÁRIOS E <span>ORGANIZAÇÃO</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content">
+                    <span class="comment">/* Seção: cabeçalho */</span><br>
+                    <span class="tag">header</span> { ... }<br><br>
+                    <span class="comment">/* Rodapé */</span><br>
+                    <span class="tag">footer</span> { ... }
+                </div>
+            </div>
+            <div>
+                <p>Use <strong>comentários</strong> <code>/* ... */</code> para separar seções do arquivo e lembrar decisões de design.</p>
+                <p>Convém manter um <strong>arquivo por página</strong> ou um <strong>main.css</strong> importado em todas — evite duplicar regras gigantes.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">FERRAMENTAS: <span>AMBIENTE</span></h2>
+    <div class="content-area">
+        <div class="section-title-layout" style="margin-bottom: 30px;">
+            <p style="font-size: 24px;">Mesmo projeto do Módulo 1: <strong>VS Code</strong> + <strong>Live Server</strong> para ver o CSS ao salvar.</p>
+        </div>
+        <div class="tile-grid">
+            <div class="tile"><i class="fa-solid fa-server"></i><h3>LIVE SERVER</h3><p>Atualiza a página ao salvar o <code>.css</code>.</p></div>
+            <div class="tile"><i class="fa-solid fa-wand-magic-sparkles"></i><h3>PRETTIER</h3><p>Alinha propriedades e quebras de linha.</p></div>
+            <div class="tile"><i class="fa-solid fa-eye"></i><h3>COLOR HIGHLIGHT</h3><p>Mostra a cor ao lado de <code>#hex</code> e <code>rgb()</code> (opcional).</p></div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">DEVTOOLS: <span>INSPECIONAR ESTILOS</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <p>No Chrome/Edge/Firefox: <strong>F12</strong> ou clique direito → <strong>Inspecionar</strong>.</p>
+                <p>Veja quais regras se aplicam ao elemento, a <strong>ordem da cascata</strong> e valores riscados (sobrescritos).</p>
+                <p>Ótimo para <strong>testar</strong> valores antes de colar no arquivo.</p>
+            </div>
+            <div class="image-wrapper contain">
+                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&q=80" alt="Desenvolvimento web">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">SELETORES <span>BÁSICOS</span></h2>
+    <div class="content-area">
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 18px;">
+                <span class="tag">p</span> { } <span class="comment">/* todos os parágrafos */</span><br>
+                .<span class="val">destaque</span> { } <span class="comment">/* class="destaque" */</span><br>
+                #<span class="val">topo</span> { } <span class="comment">/* id="topo" — use com moderação */</span>
+            </div>
+        </div>
+        <p style="margin-top: 24px;"><strong>ID</strong> deve ser único na página. <strong>Classes</strong> podem repetir em vários elementos.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">CLASSES: <span>O SELETOR .nome</span></h2>
+    <div class="content-area">
+        <p>No HTML você escreve <code>class="nome-da-classe"</code>. No CSS, o seletor começa com <strong>ponto</strong>: <code>.nome-da-classe { }</code>.</p>
+        <div class="code-window" style="margin-top: 16px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 16px;">
+                <span class="comment">&lt;!-- HTML --&gt;</span><br>
+                &lt;<span class="tag">section</span> <span class="attr">class</span>=<span class="val">"cartao"</span>&gt; ... &lt;/<span class="tag">section</span>&gt;<br><br>
+                <span class="comment">/* CSS */</span><br>
+                .<span class="val">cartao</span> {<br>
+                &nbsp;&nbsp;<span class="attr">background</span>: <span class="val">#fff</span>;<br>
+                &nbsp;&nbsp;<span class="attr">border-radius</span>: <span class="val">12px</span>;<br>
+                }
+            </div>
+        </div>
+        <p style="margin-top: 18px;">Use <strong>várias classes</strong> no mesmo elemento separando por espaço: <code>class="cartao cartao--destaque"</code> — no CSS: <code>.cartao</code> e <code>.cartao--destaque</code>.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">IDs: <span>O SELETOR #nome</span></h2>
+    <div class="content-area">
+        <p>No HTML: <code>id="contato"</code>. No CSS: <strong>#contato</strong> <code>{ }</code>. Em links da mesma página: <code>href="#contato"</code> leva até esse bloco.</p>
+        <div class="code-window" style="margin-top: 16px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 16px;">
+                &lt;<span class="tag">footer</span> <span class="attr">id</span>=<span class="val">"contato"</span>&gt;<br>
+                &nbsp;&nbsp;...<br>
+                &lt;/<span class="tag">footer</span>&gt;<br><br>
+                #<span class="val">contato</span> {<br>
+                &nbsp;&nbsp;<span class="attr">padding</span>: <span class="val">1rem</span>;<br>
+                }
+            </div>
+        </div>
+        <p style="margin-top: 18px;"><strong>Regra:</strong> cada <code>id</code> só pode aparecer <strong>uma vez</strong> na página. Prefira <strong>classes</strong> para estilos que se repetem (vários cartões); use <strong>id</strong> para um ponto único (âncora, rótulo de formulário, área que o JavaScript vai buscar).</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PERFIL: <span>ONDE COLOCAR CLASSES</span></h2>
+    <div class="content-area">
+        <p style="margin-bottom: 14px;">No HTML do Módulo 1, acrescente <code>class</code> assim (nomes sugeridos — você pode adaptar). O <strong>exercício</strong> traz o esquema <strong>completo em código</strong> nos <strong>PASSOs 3 e 4</strong>.</p>
+        <ul style="font-size: 20px; line-height: 1.65;">
+            <li><code>&lt;main class="perfil-main"&gt;</code> — envolve as seções; no CSS use <code>.perfil-main</code> para largura máxima e centralizar.</li>
+            <li><code>&lt;section class="cartao"&gt;</code> em <strong>cada</strong> bloco (Sobre / Habilidades) — a mesma classe nos dois; estilize o “cartão” uma vez só.</li>
+            <li><code>&lt;img class="perfil-foto" ...&gt;</code> — só a foto do perfil fica redonda com sombra, sem afetar outras imagens no futuro.</li>
+            <li><code>&lt;footer class="perfil-rodape"&gt;</code> — separa o rodapé do perfil de outros <code>footer</code> que o site possa ter depois.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PERFIL: <span>ONDE COLOCAR UM ID</span></h2>
+    <div class="content-area">
+        <ul style="font-size: 20px; line-height: 1.65;">
+            <li><code>&lt;footer class="perfil-rodape" id="contato"&gt;</code> — o <strong>id</strong> <code>contato</code> marca o bloco de contatos. Assim você pode linkar <code>&lt;a href="#contato"&gt;Contato&lt;/a&gt;</code> no topo da página.</li>
+            <li>Opcional: <code>&lt;header class="perfil-hero" id="topo"&gt;</code> — para um link “voltar ao topo” com <code>href="#topo"</code>.</li>
+        </ul>
+        <p style="margin-top: 20px;">No <strong>exemplo do tutorial</strong> (<code>exemplos/css</code>), o HTML já traz essas classes e ids; o <code>estilo.css</code> usa <code>.perfil-main</code>, <code>.cartao</code>, <code>.perfil-foto</code>, <code>.perfil-rodape</code> e <code>#contato</code> onde faz sentido.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">CASCATA E <span>ESPECIFICIDADE</span></h2>
+    <div class="content-area">
+        <ul>
+            <li>Quando duas regras brigam, o navegador usa <strong>especificidade</strong> (id &gt; classe &gt; elemento).</li>
+            <li>Se empatar, vale a que aparece <strong>por último</strong> no CSS.</li>
+            <li><code>!important</code> ganha de quase tudo — <strong>evite</strong> no dia a dia; só em correções pontuais.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">HERANÇA <span>(INHERIT)</span></h2>
+    <div class="content-area">
+        <p>Propriedades como <code>color</code>, <code>font-family</code> e <code>line-height</code> <strong>descem</strong> para filhos. Outras (margem, padding, fundo) <strong>não</strong>.</p>
+        <p style="margin-top: 20px;">Defina tipografia no <code>body</code> e ajuste só onde precisar — menos repetição.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">BOX MODEL: <span>CAIXAS</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <p>Todo elemento ocupa uma <strong>caixa</strong>: conteúdo → <strong>padding</strong> → <strong>border</strong> → <strong>margin</strong> (espaço para fora).</p>
+                <p><code>box-sizing: border-box;</code> no <code>*</code> ou <code>html</code> faz largura incluir padding e borda — padrão moderno.</p>
+            </div>
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content" style="font-size: 17px;">
+                    * {<br>
+                    &nbsp;&nbsp;<span class="attr">box-sizing</span>: <span class="val">border-box</span>;<br>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">CORES E FUNDOS · <span>HEX E RGB</span></h2>
+    <div class="content-area">
+        <div class="two-column" style="align-items: start;">
+            <div>
+                <p style="margin-bottom: 14px;"><strong>Onde aplicar:</strong> <code>color</code> pinta o <strong>texto</strong> e ícones herdados; <code>background-color</code> pinta só o <strong>fundo</strong> da caixa; <code>background</code> é “atalho” que pode ser cor, gradiente ou imagem.</p>
+                <ul style="font-size: 18px; line-height: 1.55; margin: 0; padding-left: 1.2rem;">
+                    <li style="margin-bottom: 10px;"><strong>Hex (<code>#RRGGBB</code>):</strong> seis caracteres (0–9 e A–F). Cada par é vermelho, verde e azul de <code>00</code> (escuro) a <code>FF</code> (forte). Ex.: <code>#22c55e</code>. Forma curta <code>#RGB</code> — cada dígito é duplicado (<code>#f0a</code> = <code>#ff00aa</code>).</li>
+                    <li style="margin-bottom: 10px;"><strong><code>rgb(r, g, b)</code>:</strong> cada canal de <strong>0 a 255</strong> (ou porcentagens). Mesmo resultado que hex, só que legível como “mistura” de vermelho, verde e azul.</li>
+                    <li><strong><code>rgba(r, g, b, a)</code>:</strong> igual ao <code>rgb</code>, mais um quarto valor <strong>alfa</strong> de <strong>0</strong> (invisível) a <strong>1</strong> (opaco). Útil para sombras e sobreposições.</li>
+                </ul>
+            </div>
+            <div>
+                <div class="code-window">
+                    <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                    <div class="code-content" style="font-size: 16px; line-height: 1.5;">
+                        <span class="comment">/* texto e fundo sólido */</span><br>
+                        <span class="attr">color</span>: <span class="val">#22c55e</span>;<br>
+                        <span class="attr">background-color</span>: <span class="val">#0f172a</span>;<br><br>
+                        <span class="comment">/* mesmo verde em rgb / rgba */</span><br>
+                        <span class="attr">color</span>: <span class="val">rgb(34, 197, 94)</span>;<br>
+                        <span class="attr">box-shadow</span>: <span class="val">0 4px 12px rgba(0, 0, 0, 0.15)</span>;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">CORES E FUNDOS · <span>HSL E GRADIENTES</span></h2>
+    <div class="content-area">
+        <div class="two-column" style="align-items: start;">
+            <div>
+                <ul style="font-size: 18px; line-height: 1.55; margin: 0; padding-left: 1.2rem;">
+                    <li style="margin-bottom: 12px;"><strong><code>hsl(H, S%, L%)</code>:</strong> <strong>H</strong> = matiz 0–360° na roda de cores; <strong>S</strong> = saturação (0% cinza, 100% viva); <strong>L</strong> = luminosidade (0% preto, 100% branco). Bom para clarear/escurecer mantendo o “tom”.</li>
+                    <li><strong><code>hsla(H, S%, L%, a)</code>:</strong> mesmo que <code>hsl</code>, com transparência no final.</li>
+                </ul>
+                <p style="margin-top: 16px; font-size: 17px;">Também existem <strong>nomes</strong> (<code>white</code>, <code>tomato</code>…) — práticos para testes; em layout final costuma-se usar hex ou <code>hsl</code>.</p>
+            </div>
+            <div>
+                <div class="code-window">
+                    <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                    <div class="code-content" style="font-size: 16px; line-height: 1.5;">
+                        <span class="comment">/* hsl: matiz, saturação, luminosidade */</span><br>
+                        <span class="attr">border-color</span>: <span class="val">hsl(142, 71%, 45%)</span>;<br><br>
+                        <span class="comment">/* gradiente no shorthand background */</span><br>
+                        <span class="attr">background</span>: <span class="val">linear-gradient(180deg, #020617, #0f172a)</span>;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">TIPOGRAFIA <span>ESSENCIAL</span></h2>
+    <div class="content-area">
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 17px;">
+                <span class="tag">body</span> {<br>
+                &nbsp;&nbsp;<span class="attr">font-family</span>: <span class="val">'Segoe UI', sans-serif</span>;<br>
+                &nbsp;&nbsp;<span class="attr">font-size</span>: <span class="val">1rem</span>;<br>
+                &nbsp;&nbsp;<span class="attr">line-height</span>: <span class="val">1.6</span>;<br>
+                &nbsp;&nbsp;<span class="attr">font-weight</span>: <span class="val">400</span>;<br>
+                }
+            </div>
+        </div>
+        <p style="margin-top: 20px;">Importe fontes com <strong>Google Fonts</strong> (como no HTML) e use no <code>font-family</code>.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">UNIDADES: <span>PX, REM, %</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <ul>
+                    <li><strong>px</strong> — pixel fixo; controle exato.</li>
+                    <li><strong>rem</strong> — relativo ao tamanho da raiz (<code>html</code>); ótimo para acessibilidade.</li>
+                    <li><strong>%</strong> — relativo ao elemento pai (larguras fluidas).</li>
+                </ul>
+            </div>
+            <div>
+                <p>Para fontes, <strong>rem</strong> costuma ser preferido: se o usuário aumentar o texto do sistema, seu layout acompanha melhor.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">DISPLAY: <span>BLOCK, INLINE, FLEX</span></h2>
+    <div class="content-area">
+        <ul>
+            <li><code>display: block</code> — ocupa a linha inteira (padrão de <code>div</code>, <code>p</code>).</li>
+            <li><code>display: inline</code> — na mesma linha, sem quebrar fluxo (<code>span</code>, <code>a</code>).</li>
+            <li><code>display: flex</code> — alinha filhos em linha ou coluna; base do layout moderno.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">FLEXBOX: <span>NOÇÕES</span></h2>
+    <div class="content-area">
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 17px;">
+                .<span class="val">container</span> {<br>
+                &nbsp;&nbsp;<span class="attr">display</span>: <span class="val">flex</span>;<br>
+                &nbsp;&nbsp;<span class="attr">justify-content</span>: <span class="val">space-between</span>;<br>
+                &nbsp;&nbsp;<span class="attr">align-items</span>: <span class="val">center</span>;<br>
+                &nbsp;&nbsp;<span class="attr">gap</span>: <span class="val">1rem</span>;<br>
+                }
+            </div>
+        </div>
+        <p style="margin-top: 20px;"><code>justify-content</code> alinha no eixo principal; <code>align-items</code> no eixo transversal; <code>gap</code> espaça os itens.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">CSS GRID: <span>VISÃO GERAL</span></h2>
+    <div class="content-area">
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 17px;">
+                .<span class="val">grade</span> {<br>
+                &nbsp;&nbsp;<span class="attr">display</span>: <span class="val">grid</span>;<br>
+                &nbsp;&nbsp;<span class="attr">grid-template-columns</span>: <span class="val">repeat(3, 1fr)</span>;<br>
+                &nbsp;&nbsp;<span class="attr">gap</span>: <span class="val">1.5rem</span>;<br>
+                }
+            </div>
+        </div>
+        <p style="margin-top: 20px;">Grid é forte para <strong>layouts em duas dimensões</strong> (linhas e colunas ao mesmo tempo). Combine com Flex onde fizer sentido.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">POSICIONAMENTO <span>BÁSICO</span></h2>
+    <div class="content-area">
+        <ul>
+            <li><code>position: static</code> — fluxo normal (padrão).</li>
+            <li><code>relative</code> — desloca em relação ao lugar original.</li>
+            <li><code>absolute</code> — em relação ao ancestral posicionado; use com critério.</li>
+        </ul>
+        <p style="margin-top: 20px;">Para centrar conteúdo simples, muitas vezes <strong>Flex</strong> ou <strong>margin: 0 auto</strong> em blocos com largura definida resolve.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PSEUDO-CLASSES: <span>:hover</span></h2>
+    <div class="content-area">
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 16px;">
+                <span class="tag">a</span>:hover {<br>
+                &nbsp;&nbsp;<span class="attr">color</span>: <span class="val">#065f46</span>;<br>
+                &nbsp;&nbsp;<span class="attr">text-decoration</span>: <span class="val">underline</span>;<br>
+                }<br><br>
+                .<span class="val">cartao</span>:hover {<br>
+                &nbsp;&nbsp;<span class="attr">box-shadow</span>: <span class="val">0 6px 16px rgba(0, 0, 0, 0.15)</span>;<br>
+                &nbsp;&nbsp;<span class="attr">transform</span>: <span class="val">translateY(-4px)</span>;<br>
+                }
+            </div>
+        </div>
+        <p style="margin-top: 20px;">Em <strong>links</strong>, combine cor e sublinhado. Em <strong>cartões</strong> (classe <code>.cartao</code> no HTML), no <code>:hover</code> costuma aumentar um pouco a <strong>sombra</strong> e subir o bloco com <strong>translateY</strong> — use <code>transition</code> no estado normal para não “pular”.</p>
+        <p style="margin-top: 12px; font-size: 20px;">Outras úteis: <code>:focus-visible</code>, <code>:active</code>, <code>:first-child</code>.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">TRANSIÇÕES <span>SUAVES</span></h2>
+    <div class="content-area">
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 16px;">
+                .<span class="val">cartao</span> {<br>
+                &nbsp;&nbsp;<span class="attr">transition</span>: <span class="val">box-shadow 0.25s, transform 0.25s</span>;<br>
+                }
+            </div>
+        </div>
+        <p style="margin-top: 20px;">Coloque <code>transition</code> no cartão com as mesmas propriedades que você muda no <code>:hover</code> (por exemplo <strong>box-shadow</strong> e <strong>transform</strong>).</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">BOX-SHADOW: <span>SIMPLES</span></h2>
+    <div class="content-area">
+        <p style="margin-bottom: 16px;">Forma mais comum (sombra “para baixo”): <strong>0</strong>, <strong>quanto desce</strong>, <strong>desfoque</strong>, <strong>cor</strong>. Use <code>rgba(…)</code> para a sombra ficar suave.</p>
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 17px;">
+                .<span class="val">cartao</span> {<br>
+                &nbsp;&nbsp;<span class="attr">box-shadow</span>: <span class="val">0 2px 8px rgba(0, 0, 0, 0.1)</span>;<br>
+                }<br>
+                .<span class="val">cartao</span>:hover {<br>
+                &nbsp;&nbsp;<span class="attr">box-shadow</span>: <span class="val">0 6px 16px rgba(0, 0, 0, 0.15)</span>;<br>
+                }
+            </div>
+        </div>
+        <p style="margin-top: 18px;">No <strong>exemplo de perfil</strong>, os cartões usam sombra leve e, no <strong>hover</strong>, sombra um pouco maior + <code>translateY</code>. A tabela usa a mesma sombra fixa (sem precisar mudar no hover).</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">VARIÁVEIS CSS <span>(CUSTOM PROPERTIES)</span></h2>
+    <div class="content-area">
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 17px;">
+                :<span class="tag">root</span> {<br>
+                &nbsp;&nbsp;<span class="attr">--cor-primaria</span>: <span class="val">#047857</span>;<br>
+                &nbsp;&nbsp;<span class="attr">--texto</span>: <span class="val">#111827</span>;<br>
+                &nbsp;&nbsp;<span class="attr">--sombra</span>: <span class="val">0 2px 8px rgba(0, 0, 0, 0.1)</span>;<br>
+                }<br>
+                <span class="tag">h1</span> { <span class="attr">color</span>: <span class="val">var(--cor-primaria)</span>; }
+            </div>
+        </div>
+        <p style="margin-top: 20px;">Útil quando o mesmo valor se repete muitas vezes. No <strong>exemplo do tutorial</strong> usamos <strong>cores e sombras diretas</strong> no arquivo — mais fácil no começo.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">RESPONSIVO: <span>MEDIA QUERIES</span></h2>
+    <div class="content-area">
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 16px;">
+                @media (max-width: 600px) {<br>
+                &nbsp;&nbsp;<span class="tag">main</span> <span class="tag">section</span>:hover {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="attr">transform</span>: <span class="val">none</span>;<br>
+                &nbsp;&nbsp;}<br>
+                }
+            </div>
+        </div>
+        <p style="margin-top: 20px;">Ajuste colunas, fontes e espaçamentos quando a <strong>largura da tela</strong> mudar.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">BOAS <span>PRÁTICAS</span></h2>
+    <div class="content-area">
+        <div class="tile-grid">
+            <div class="tile"><h3>NOMES CLAROS</h3><p>Classes como <code>.card-perfil</code> em vez de <code>.c1</code>.</p></div>
+            <div class="tile"><h3>COMPONENTES</h3><p>Agrupe regras por seção (header, main, footer).</p></div>
+            <div class="tile"><h3>MOBILE</h3><p>Teste larguras menores cedo — evita retrabalho.</p></div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">DICAS <span>EXTRA</span></h2>
+    <div class="content-area">
+        <ul>
+            <li>Prefira <strong>rem</strong> para fontes e <strong>max-width</strong> no texto longo para leitura.</li>
+            <li>Em <strong>fundo branco</strong>, use texto <strong>#111827–#374151</strong> e verde <strong>#047857</strong> para bom contraste (WCAG).</li>
+            <li>Em <code>:focus-visible</code> nos links, <code>outline: 2px solid …</code> + <code>outline-offset</code> deixa o foco visível sem complicar.</li>
+            <li>Normalize diferenças entre navegadores com um <strong>reset leve</strong> ou <code>box-sizing</code> global.</li>
+            <li>Evite depender só de posição absoluta para layout principal — Flex/Grid primeiro.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="slide-container">
+    <div class="section-title-layout">
+        <hr>
+        <h2>EXERCÍCIO FINAL</h2>
+        <p>Estilize a página de perfil do Módulo 1.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">OBJETIVO DO <span>EXERCÍCIO</span></h2>
+    <div class="content-area">
+        <p>Você já tem o <strong>HTML</strong> do portfólio: <code>header</code> com nome, <code>main</code> com seções, foto, lista de skills, <code>footer</code> com contatos/tabela.</p>
+        <p style="margin-top: 24px;">Agora crie <code>estilo.css</code> (ou <code>style.css</code>), linke no <code>&lt;head&gt;</code> e deixe a página <strong>legível, alinhada e com identidade visual</strong> (cores, espaçamentos, tipografia).</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 1: <span>ARQUIVO E RESET LEVE</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <p>Crie o arquivo CSS na mesma pasta do <code>index.html</code>.</p>
+                <p>No HTML: <code>&lt;link rel="stylesheet" href="estilo.css"&gt;</code>.</p>
+                <p style="margin-top: 12px;">Nos <strong>PASSOs 3 e 4</strong> você verá o HTML com <code>class</code> e <code>id</code>; depois os PASSOs de CSS usam esses nomes nos seletores.</p>
+            </div>
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content" style="font-size: 15px;">
+                    * {<br>
+                    &nbsp;&nbsp;<span class="attr">box-sizing</span>: <span class="val">border-box</span>;<br>
+                    }<br>
+                    <span class="tag">body</span> {<br>
+                    &nbsp;&nbsp;<span class="attr">margin</span>: <span class="val">0</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">font-family</span>: <span class="val">system-ui, sans-serif</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">line-height</span>: <span class="val">1.6</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">color</span>: <span class="val">#111827</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">background</span>: <span class="val">#f3f4f6</span>;<br>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 2: <span>CABEÇALHO DO PERFIL</span></h2>
+    <div class="content-area">
+        <p>Use <code>header.perfil-hero</code> (classe já no HTML). Fundo <strong>verde bem claro</strong>, borda embaixo, sombra simples. Opcional: <code>id="topo"</code> no mesmo <code>header</code> para âncora <code>#topo</code>.</p>
+        <div class="code-window" style="margin-top: 20px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 16px;">
+                <span class="tag">header</span>.<span class="val">perfil-hero</span> {<br>
+                &nbsp;&nbsp;<span class="attr">text-align</span>: <span class="val">center</span>;<br>
+                &nbsp;&nbsp;<span class="attr">padding</span>: <span class="val">2.5rem 1rem</span>;<br>
+                &nbsp;&nbsp;<span class="attr">background</span>: <span class="val">#ecfdf5</span>;<br>
+                &nbsp;&nbsp;<span class="attr">border-bottom</span>: <span class="val">1px solid #a7f3d0</span>;<br>
+                &nbsp;&nbsp;<span class="attr">box-shadow</span>: <span class="val">0 2px 8px rgba(0, 0, 0, 0.08)</span>;<br>
+                }<br>
+                <span class="tag">header</span>.<span class="val">perfil-hero</span> <span class="tag">h1</span> {<br>
+                &nbsp;&nbsp;<span class="attr">margin</span>: <span class="val">0</span>;<br>
+                &nbsp;&nbsp;<span class="attr">font-size</span>: <span class="val">clamp(1.75rem, 4vw, 2.5rem)</span>;<br>
+                &nbsp;&nbsp;<span class="attr">color</span>: <span class="val">#065f46</span>;<br>
+                &nbsp;&nbsp;<span class="attr">font-weight</span>: <span class="val">800</span>;<br>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 3: <span>HTML — CLASS E ID (1/2)</span></h2>
+    <div class="content-area">
+        <p style="margin-bottom: 12px;">Abra o <code>index.html</code> e vá <strong>adicionando</strong> atributos — sem mudar a estrutura do Módulo 1.</p>
+        <p style="margin-bottom: 12px; font-size: 19px;"><strong>Parte 1:</strong> cabeçalho com <code>class="perfil-hero"</code> e opcional <code>id="topo"</code>; depois <code>main</code> com <code>class="perfil-main"</code> e o <strong>primeiro</strong> bloco <code>section.cartao</code> (Sobre mim + foto).</p>
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 14px; line-height: 1.5;">
+                <span class="comment">&lt;!-- Cabeçalho do nome --&gt;</span><br>
+                &lt;<span class="tag">header</span> <span class="attr">class</span>=<span class="val">"perfil-hero"</span> <span class="attr">id</span>=<span class="val">"topo"</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">h1</span>&gt;Helena Martins&lt;/<span class="tag">h1</span>&gt;<br>
+                &lt;/<span class="tag">header</span>&gt;<br><br>
+                <span class="comment">&lt;!-- Primeira section: sobre + foto --&gt;</span><br>
+                &lt;<span class="tag">main</span> <span class="attr">class</span>=<span class="val">"perfil-main"</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">section</span> <span class="attr">class</span>=<span class="val">"cartao"</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">h2</span>&gt;Sobre mim&lt;/<span class="tag">h2</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">p</span>&gt;...&lt;/<span class="tag">p</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">img</span> <span class="attr">class</span>=<span class="val">"perfil-foto"</span> <span class="attr">src</span>=<span class="val">"..."</span> <span class="attr">alt</span>=<span class="val">"..."</span>&gt;<br>
+                &nbsp;&nbsp;&lt;/<span class="tag">section</span>&gt;
+            </div>
+        </div>
+        <p style="margin-top: 14px; font-size: 18px;">No próximo slide: segunda <code>section</code>, fechamento do <code>main</code> e <code>footer</code> com <code>id</code>.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 4: <span>HTML — CLASS E ID (2/2)</span></h2>
+    <div class="content-area">
+        <p style="margin-bottom: 12px; font-size: 19px;"><strong>Parte 2:</strong> mesma classe <code>cartao</code> na segunda section (Habilidades); no rodapé, <code>class="perfil-rodape"</code> e <code>id="contato"</code> para links <code>#contato</code>.</p>
+        <div class="code-window">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 14px; line-height: 1.5;">
+                &nbsp;&nbsp;&lt;<span class="tag">section</span> <span class="attr">class</span>=<span class="val">"cartao"</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">h2</span>&gt;Habilidades&lt;/<span class="tag">h2</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">ul</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">li</span>&gt;...&lt;/<span class="tag">li</span>&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="tag">ul</span>&gt;<br>
+                &nbsp;&nbsp;&lt;/<span class="tag">section</span>&gt;<br>
+                &lt;/<span class="tag">main</span>&gt;<br><br>
+                &lt;<span class="tag">footer</span> <span class="attr">class</span>=<span class="val">"perfil-rodape"</span> <span class="attr">id</span>=<span class="val">"contato"</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">h2</span>&gt;Contato&lt;/<span class="tag">h2</span>&gt;<br>
+                &nbsp;&nbsp;&lt;<span class="tag">table</span>&gt;...&lt;/<span class="tag">table</span>&gt;<br>
+                &lt;/<span class="tag">footer</span>&gt;
+            </div>
+        </div>
+        <p style="margin-top: 16px; font-size: 19px;"><strong>Dica:</strong> salve após editar — o layout só “fecha” quando o CSS dos próximos passos estiver aplicado.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 5: <span>CSS — LARGURA DO MAIN</span></h2>
+    <div class="content-area">
+        <p>O seletor <code>.perfil-main</code> centraliza a coluna de conteúdo e limita a largura para leitura confortável.</p>
+        <div class="code-window" style="margin-top: 18px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 18px;">
+                .<span class="val">perfil-main</span> {<br>
+                &nbsp;&nbsp;<span class="attr">max-width</span>: <span class="val">720px</span>;<br>
+                &nbsp;&nbsp;<span class="attr">margin</span>: <span class="val">0 auto</span>;<br>
+                &nbsp;&nbsp;<span class="attr">padding</span>: <span class="val">1.5rem 1rem 0.5rem</span>;<br>
+                }
+            </div>
+        </div>
+        <p style="margin-top: 18px; font-size: 19px;">No próximo slide: aparência do <strong>cartão</strong> e efeito no <strong>hover</strong>.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 6: <span>CSS — CARTÃO E HOVER</span></h2>
+    <div class="content-area">
+        <p>A classe <code>.cartao</code> define o bloco branco; <code>.cartao:hover</code> aumenta a sombra e desloca levemente com <code>translateY</code>.</p>
+        <div class="code-window" style="margin-top: 18px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 16px;">
+                .<span class="val">cartao</span> {<br>
+                &nbsp;&nbsp;<span class="attr">background</span>: <span class="val">#fff</span>;<br>
+                &nbsp;&nbsp;<span class="attr">border</span>: <span class="val">1px solid #d1d5db</span>;<br>
+                &nbsp;&nbsp;<span class="attr">border-radius</span>: <span class="val">12px</span>;<br>
+                &nbsp;&nbsp;<span class="attr">padding</span>: <span class="val">1.25rem 1.5rem</span>;<br>
+                &nbsp;&nbsp;<span class="attr">margin-bottom</span>: <span class="val">1rem</span>;<br>
+                &nbsp;&nbsp;<span class="attr">box-shadow</span>: <span class="val">0 2px 8px rgba(0,0,0,.1)</span>;<br>
+                &nbsp;&nbsp;<span class="attr">transition</span>: <span class="val">box-shadow .25s, transform .25s</span>;<br>
+                }<br>
+                .<span class="val">cartao</span>:hover {<br>
+                &nbsp;&nbsp;<span class="attr">box-shadow</span>: <span class="val">0 6px 16px rgba(0,0,0,.15)</span>;<br>
+                &nbsp;&nbsp;<span class="attr">transform</span>: <span class="val">translateY(-4px)</span>;<br>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 7: <span>CSS — TÍTULOS E TEXTO NO CARTÃO</span></h2>
+    <div class="content-area">
+        <p>Os <code>h2</code> e parágrafos <strong>dentro</strong> de <code>.cartao</code> usam seletores combinados: <code>.cartao h2</code> e <code>.cartao p</code> (só afetam o que está dentro do bloco).</p>
+        <div class="code-window" style="margin-top: 18px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 16px;">
+                .<span class="val">cartao</span> <span class="tag">h2</span> {<br>
+                &nbsp;&nbsp;<span class="attr">margin</span>: <span class="val">0 0 0.75rem</span>;<br>
+                &nbsp;&nbsp;<span class="attr">color</span>: <span class="val">#065f46</span>;<br>
+                &nbsp;&nbsp;<span class="attr">font-size</span>: <span class="val">1.1rem</span>;<br>
+                &nbsp;&nbsp;<span class="attr">font-weight</span>: <span class="val">800</span>;<br>
+                &nbsp;&nbsp;<span class="attr">border-left</span>: <span class="val">4px solid #10b981</span>;<br>
+                &nbsp;&nbsp;<span class="attr">padding-left</span>: <span class="val">0.75rem</span>;<br>
+                }<br><br>
+                .<span class="val">cartao</span> <span class="tag">p</span> {<br>
+                &nbsp;&nbsp;<span class="attr">margin</span>: <span class="val">0 0 0.5rem</span>;<br>
+                &nbsp;&nbsp;<span class="attr">color</span>: <span class="val">#374151</span>;<br>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 8: <span>FOTO E LISTA</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <p>No HTML: <code>class="perfil-foto"</code> na tag <code>img</code>. No CSS: <code>.perfil-foto</code> — assim outras imagens no site não herdam o círculo por engano.</p>
+            </div>
+            <div class="code-window">
+                <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+                <div class="code-content" style="font-size: 15px;">
+                    .<span class="val">perfil-foto</span> {<br>
+                    &nbsp;&nbsp;<span class="attr">display</span>: <span class="val">block</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">max-width</span>: <span class="val">200px</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">border-radius</span>: <span class="val">50%</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">margin</span>: <span class="val">1rem auto 0</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">border</span>: <span class="val">3px solid #fff</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">box-shadow</span>: <span class="val">0 4px 12px rgba(0, 0, 0, 0.12)</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">transition</span>: <span class="val">box-shadow 0.25s, transform 0.25s</span>;<br>
+                    }<br>
+                    .<span class="val">perfil-foto</span>:hover {<br>
+                    &nbsp;&nbsp;<span class="attr">box-shadow</span>: <span class="val">0 6px 16px rgba(0, 0, 0, 0.18)</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">transform</span>: <span class="val">scale(1.03)</span>;<br>
+                    }
+                </div>
+            </div>
+        </div>
+        <p style="margin-top: 20px;">Lista dentro do cartão: <code>.cartao ul</code> e <code>.cartao li { color: #374151; }</code>.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 9: <span>CSS — RODAPÉ (.perfil-rodape)</span></h2>
+    <div class="content-area">
+        <p>HTML: <code>&lt;footer class="perfil-rodape" id="contato"&gt;</code>. Primeiro alinhe o bloco do rodapé ao <code>main</code> (mesma largura máxima e centralização).</p>
+        <div class="code-window" style="margin-top: 16px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 17px;">
+                .<span class="val">perfil-rodape</span> {<br>
+                &nbsp;&nbsp;<span class="attr">max-width</span>: <span class="val">720px</span>;<br>
+                &nbsp;&nbsp;<span class="attr">margin</span>: <span class="val">0 auto</span>;<br>
+                &nbsp;&nbsp;<span class="attr">padding</span>: <span class="val">0.5rem 1rem 2rem</span>;<br>
+                }
+            </div>
+        </div>
+        <p style="margin-top: 18px; font-size: 18px;">Próximo: título “Contato”, depois a <strong>caixa</strong> da tabela.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 10: <span>CSS — TÍTULO “CONTATO”</span></h2>
+    <div class="content-area">
+        <p>O <code>h2</code> “Contato” é <strong>filho direto</strong> do <code>footer</code>. O seletor <code>.perfil-rodape &gt; h2</code> usa <code>&gt;</code> para não pegar outros <code>h2</code> que apareçam mais adentro.</p>
+        <div class="code-window" style="margin-top: 16px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 17px;">
+                .<span class="val">perfil-rodape</span> &gt; <span class="tag">h2</span> {<br>
+                &nbsp;&nbsp;<span class="attr">color</span>: <span class="val">#065f46</span>;<br>
+                &nbsp;&nbsp;<span class="attr">font-size</span>: <span class="val">1.2rem</span>;<br>
+                &nbsp;&nbsp;<span class="attr">font-weight</span>: <span class="val">800</span>;<br>
+                }
+            </div>
+        </div>
+        <p style="margin-top: 18px; font-size: 18px;">Próximo: moldura da tabela (<code>#contato table</code>).</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 11: <span>CSS — CAIXA DA TABELA</span></h2>
+    <div class="content-area">
+        <p>O <code>id="contato"</code> no <code>footer</code> permite o seletor <code>#contato table</code>: só a tabela de contatos recebe borda arredondada e sombra.</p>
+        <div class="code-window" style="margin-top: 16px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 16px;">
+                #<span class="val">contato</span> <span class="tag">table</span> {<br>
+                &nbsp;&nbsp;<span class="attr">width</span>: <span class="val">100%</span>;<br>
+                &nbsp;&nbsp;<span class="attr">border-collapse</span>: <span class="val">collapse</span>;<br>
+                &nbsp;&nbsp;<span class="attr">background</span>: <span class="val">#fff</span>;<br>
+                &nbsp;&nbsp;<span class="attr">border-radius</span>: <span class="val">12px</span>;<br>
+                &nbsp;&nbsp;<span class="attr">overflow</span>: <span class="val">hidden</span>;<br>
+                &nbsp;&nbsp;<span class="attr">border</span>: <span class="val">1px solid #d1d5db</span>;<br>
+                &nbsp;&nbsp;<span class="attr">box-shadow</span>: <span class="val">0 2px 8px rgba(0,0,0,.1)</span>;<br>
+                }
+            </div>
+        </div>
+        <p style="margin-top: 16px; font-size: 18px;">Próximo: legenda e linha de cabeçalho (<code>caption</code> e <code>th</code>).</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 12: <span>CSS — LEGENDA E CABEÇALHO</span></h2>
+    <div class="content-area">
+        <p><code>caption</code> fica acima da tabela; <code>thead th</code> estiliza os títulos das colunas (Rede / Link).</p>
+        <div class="code-window" style="margin-top: 14px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 16px;">
+                #<span class="val">contato</span> <span class="tag">caption</span> {<br>
+                &nbsp;&nbsp;<span class="attr">caption-side</span>: <span class="val">top</span>;<br>
+                &nbsp;&nbsp;<span class="attr">padding-bottom</span>: <span class="val">0.5rem</span>;<br>
+                &nbsp;&nbsp;<span class="attr">font-weight</span>: <span class="val">600</span>;<br>
+                &nbsp;&nbsp;<span class="attr">color</span>: <span class="val">#374151</span>;<br>
+                }<br><br>
+                #<span class="val">contato</span> <span class="tag">thead</span> <span class="tag">th</span> {<br>
+                &nbsp;&nbsp;<span class="attr">background</span>: <span class="val">#d1fae5</span>;<br>
+                &nbsp;&nbsp;<span class="attr">color</span>: <span class="val">#065f46</span>;<br>
+                &nbsp;&nbsp;<span class="attr">padding</span>: <span class="val">0.75rem 1rem</span>;<br>
+                }
+            </div>
+        </div>
+        <p style="margin-top: 16px; font-size: 18px;">Próximo: células do corpo da tabela e hover na linha.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 13: <span>CSS — CÉLULAS E HOVER</span></h2>
+    <div class="content-area">
+        <p><code>tbody td</code> define padding e separador entre linhas. O <code>:hover</code> na <code>tr</code> destaca a linha ao passar o mouse.</p>
+        <div class="code-window" style="margin-top: 14px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 16px;">
+                #<span class="val">contato</span> <span class="tag">tbody</span> <span class="tag">td</span> {<br>
+                &nbsp;&nbsp;<span class="attr">padding</span>: <span class="val">0.75rem 1rem</span>;<br>
+                &nbsp;&nbsp;<span class="attr">border-top</span>: <span class="val">1px solid #e5e7eb</span>;<br>
+                }<br><br>
+                #<span class="val">contato</span> <span class="tag">tbody</span> <span class="tag">tr</span>:hover <span class="tag">td</span> {<br>
+                &nbsp;&nbsp;<span class="attr">background</span>: <span class="val">#ecfdf5</span>;<br>
+                }
+            </div>
+        </div>
+        <p style="margin-top: 16px; font-size: 18px;">Próximo: estilo dos <strong>links</strong>.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 14: <span>CSS — LINKS DO PERFIL</span></h2>
+    <div class="content-area">
+        <p>Links no <code>main</code> e no rodapé: cor, hover com sublinhado e <code>:focus-visible</code> para teclado.</p>
+        <div class="code-window" style="margin-top: 14px;">
+            <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
+            <div class="code-content" style="font-size: 15px;">
+                .<span class="val">perfil-main</span> <span class="tag">a</span>, .<span class="val">perfil-rodape</span> <span class="tag">a</span> {<br>
+                &nbsp;&nbsp;<span class="attr">color</span>: <span class="val">#047857</span>;<br>
+                &nbsp;&nbsp;<span class="attr">font-weight</span>: <span class="val">600</span>;<br>
+                &nbsp;&nbsp;<span class="attr">text-decoration</span>: <span class="val">none</span>;<br>
+                }<br>
+                .<span class="val">perfil-main</span> <span class="tag">a</span>:hover,<br>
+                .<span class="val">perfil-rodape</span> <span class="tag">a</span>:hover {<br>
+                &nbsp;&nbsp;<span class="attr">color</span>: <span class="val">#065f46</span>;<br>
+                &nbsp;&nbsp;<span class="attr">text-decoration</span>: <span class="val">underline</span>;<br>
+                }<br>
+                .<span class="val">perfil-main</span> <span class="tag">a</span>:focus-visible,<br>
+                .<span class="val">perfil-rodape</span> <span class="tag">a</span>:focus-visible {<br>
+                &nbsp;&nbsp;<span class="attr">outline</span>: <span class="val">2px solid #10b981</span>;<br>
+                &nbsp;&nbsp;<span class="attr">outline-offset</span>: <span class="val">2px</span>;<br>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PASSO 15: <span>REVISÃO</span></h2>
+    <div class="content-area">
+        <ul>
+            <li>Abra com <strong>Live Server</strong> e teste em larguras menores (DevTools → modo responsivo).</li>
+            <li>Confira <strong>contraste</strong> (texto escuro no fundo claro) e o hover nos cartões e nas linhas da tabela.</li>
+            <li>Valide HTML e confira se as <strong>classes</strong> no HTML batem com os seletores <code>.</code> e <code>#</code> no CSS.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">CHECKLIST DE <span>CONQUISTA (CSS)</span></h2>
+    <div class="content-area">
+        <ul>
+            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Sei ligar um arquivo <strong>.css</strong> externo ao HTML.</li>
+            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Entendo <strong>seletores</strong>, <strong>cascata</strong> e <strong>box model</strong>.</li>
+            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Uso <strong>Flex</strong> para alinhar blocos e <strong>media queries</strong> básicas.</li>
+            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Sei usar <strong>classes</strong> (<code>.</code>) e <strong>ids</strong> (<code>#</code>) no HTML e no CSS.</li>
+            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Estilizei (ou consigo estilizar) a <strong>página de perfil</strong> do Módulo 1.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="slide-container">
+  <div class="content-area" style="text-align: center;">
+    <h2 style="font-size: 60px; color: #22c55e;">PARABÉNS!</h2>
+    <p style="margin-top: 30px; font-size: 26px;">Seu perfil agora tem cara de site de verdade.</p>
+    <p style="margin-top: 60px; font-size: 18px; opacity: 0.85;"><a href="JS.html" style="color: #eab308; font-weight: 600; text-decoration: none;">Módulo 3 · JavaScript</a> — interação e DOM no navegador</p>
+  </div>
+</div>
+
+<div class="slide-container">
+    <div class="content-area" style="text-align: center;">
+        <h2 style="font-size: 50px; color: #fff;">CONTINUE<br><span style="color: #22c55e;">CODANDO</span></h2>
+        <p style="margin-top: 30px;">Experimente paletas e refatore o CSS à medida que aprender mais.</p>
+    </div>
+</div>
+
+<div class="slide-container">
+    <div class="content-area" style="text-align: center; align-items: center;">
+        <h2 class="slide-title" style="border: none; padding: 0; text-align: center; margin-bottom: 16px;">EXEMPLO: <span>PERFIL ESTILIZADO</span></h2>
+        <p style="font-size: 22px; color: #94a3b8; max-width: 640px;">Veja a mesma página de perfil com <strong>CSS</strong> aplicado — arquivo externo <code>estilo.css</code>, variáveis, layout e tabela formatada.</p>
+        <a href="exemplos/css/index.html" class="slide-example-btn"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Abrir exemplo de perfil (HTML + CSS)</a>
+    </div>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -264,8 +264,12 @@ console.log(n);</code></pre>
             <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
             <div class="code-content code-content--compact" style="font-size: 15px;">
                 <span class="keyword" style="color: #c084fc;">function</span> atualizaBotaoTopo() {<br>
-                &nbsp;&nbsp;<span class="keyword" style="color: #c084fc;">var</span> scrollou = <span class="val">window</span>.scrollY &gt; <span class="val">300</span>;<br>
-                &nbsp;&nbsp;btnTopo.hidden = !scrollou;<br>
+                &nbsp;&nbsp;<span class="keyword" style="color: #c084fc;">let</span> scrollou = <span class="val">window</span>.scrollY &gt; <span class="val">100</span>;<br>
+                &nbsp;&nbsp;<span class="keyword" style="color: #c084fc;">if</span> (scrollou) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;btnTopo.classList.remove(<span class="val">'escondendo'</span>);<br>
+                &nbsp;&nbsp;} <span class="keyword" style="color: #c084fc;">else</span> {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;btnTopo.classList.add(<span class="val">'escondendo'</span>);<br>
+                &nbsp;&nbsp;}<br>
                 }
             </div>
         </div>
@@ -467,7 +471,7 @@ sessionStorage.getItem('chave');</code></pre>
 <div class="slide-container">
     <h2 class="slide-title">PASSO 1: <span>HTML</span> · RODAPÉ, BOTÃO E SCRIPT</h2>
     <div class="content-area">
-        <p style="font-size: 18px; color: #cbd5e1; margin-top: 0; margin-bottom: 18px; max-width: 920px;">No rodapé, guardamos os pontos que o JS vai preencher: o parágrafo <code class="code-inline">#msg-visita</code> recebe a mensagem da sessão; o <code class="code-inline">&lt;span id="rodape-ano"&gt;</code> recebe o ano. Fora do <code class="code-inline">footer</code>, o botão <code class="code-inline">#btn-voltar-topo</code> começa com <code class="code-inline">hidden</code> até o script decidir exibi-lo. Por último, o <code class="code-inline">&lt;script defer&gt;</code> carrega <strong>perfil.js</strong> depois do HTML.</p>
+        <p style="font-size: 18px; color: #cbd5e1; margin-top: 0; margin-bottom: 18px; max-width: 920px;">No rodapé, guardamos os pontos que o JS vai preencher: o parágrafo <code class="code-inline">#msg-visita</code> recebe a mensagem da sessão; o <code class="code-inline">&lt;span id="rodape-ano"&gt;</code> recebe o ano. Fora do <code class="code-inline">footer</code>, o botão <code class="code-inline">#btn-voltar-topo</code> começa com a classe <code class="code-inline">escondendo</code> até o script decidir exibi-lo. Por último, o <code class="code-inline">&lt;script defer&gt;</code> carrega <strong>perfil.js</strong> depois do HTML.</p>
         <div class="code-window">
             <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div></div>
             <div class="code-content code-content--compact" style="font-size: 13px;">
@@ -478,8 +482,7 @@ sessionStorage.getItem('chave');</code></pre>
                 &nbsp;&nbsp;&nbsp;&nbsp;© &lt;<span class="tag">span</span> <span class="attr">id</span>=<span class="val">"rodape-ano"</span>&gt;&lt;/<span class="tag">span</span>&gt; Nome — …<br>
                 &nbsp;&nbsp;&lt;/<span class="tag">p</span>&gt;<br>
                 &lt;/<span class="tag">footer</span>&gt;<br><br>
-                &lt;<span class="tag">button</span> <span class="attr">type</span>=<span class="val">"button"</span> <span class="attr">id</span>=<span class="val">"btn-voltar-topo"</span> <span class="attr">class</span>=<span class="val">"btn-voltar-topo"</span> <span class="attr">hidden</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attr">aria-hidden</span>=<span class="val">"true"</span> <span class="attr">aria-label</span>=<span class="val">"Voltar ao topo"</span>&gt;↑&lt;/<span class="tag">button</span>&gt;<br><br>
+                &lt;<span class="tag">button</span> <span class="attr">type</span>=<span class="val">"button"</span> <span class="attr">id</span>=<span class="val">"btn-voltar-topo"</span> <span class="attr">class</span>=<span class="val">"btn-voltar-topo escondendo"</span> <span class="attr">aria-label</span>=<span class="val">"Voltar ao topo"</span>&gt;↑&lt;/<span class="tag">button</span>&gt;<br><br>
                 &lt;<span class="tag">script</span> <span class="attr">src</span>=<span class="val">"perfil.js"</span> <span class="attr">defer</span>&gt;&lt;/<span class="tag">script</span>&gt;
             </div>
         </div>
@@ -493,7 +496,7 @@ sessionStorage.getItem('chave');</code></pre>
         <ul style="font-size: 18px; line-height: 1.55; margin: 0; padding-left: 1.25rem; max-width: 880px;">
             <li style="margin-bottom: 14px;"><strong>Rolagem e menu</strong> — <code class="code-inline">scroll-behavior</code> no <code class="code-inline">html</code> e estilos do mini-menu <code class="code-inline">.perfil-hero__nav</code> (links para <code class="code-inline">#sobre</code>, etc.).</li>
             <li style="margin-bottom: 14px;"><strong>Mensagem dinâmica</strong> — classe <code class="code-inline">.perfil-rodape__extras</code> envolve o parágrafo onde o JS escreve o texto da sessão.</li>
-            <li><strong>Botão “voltar ao topo”</strong> — classe <code class="code-inline">.btn-voltar-topo</code>: fixo no canto, circular, com estados de hover e foco.</li>
+            <li><strong>Botão “voltar ao topo”</strong> — classe <code class="code-inline">.btn-voltar-topo</code>: fixo no canto, circular, com estados de hover e foco; <code class="code-inline">.escondendo</code> deixa o botão invisível e sem cliques até a rolagem passar do limiar.</li>
         </ul>
         <p style="font-size: 17px; color: #94a3b8; margin-top: 22px; margin-bottom: 0;">Os próximos slides detalham cada grupo com o código.</p>
     </div>
@@ -570,7 +573,7 @@ sessionStorage.getItem('chave');</code></pre>
     <div class="content-area">
         <div class="two-column" style="align-items: start; gap: 26px;">
             <div>
-                <p style="font-size: 18px; color: #cbd5e1; margin-top: 0;">O botão fica <strong>fixo</strong> no canto inferior direito (<code class="code-inline">position: fixed</code> + <code class="code-inline">z-index</code>), em formato de <strong>círculo</strong>, cor verde escura da paleta e sombra para “levantar” da página. No <code class="code-inline">:hover</code> escurece um pouco e aumenta levemente de tamanho; no <code class="code-inline">:focus-visible</code> aparece contorno verde para quem navega com teclado.</p>
+                <p style="font-size: 18px; color: #cbd5e1; margin-top: 0;">O botão fica <strong>fixo</strong> no canto inferior direito (<code class="code-inline">position: fixed</code> + <code class="code-inline">z-index</code>), em formato de <strong>círculo</strong>, cor verde escura da paleta e sombra para “levantar” da página. No <code class="code-inline">:hover</code> escurece um pouco e aumenta levemente de tamanho; no <code class="code-inline">:focus-visible</code> aparece contorno verde para quem navega com teclado. A classe <code class="code-inline">.escondendo</code> usa <code class="code-inline">opacity: 0</code> e <code class="code-inline">pointer-events: none</code> para esconder o botão no topo da página.</p>
             </div>
             <div class="code-window">
                 <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div><span style="margin-left:12px;color:#94a3b8;font-size:13px;">estilo.css</span></div>
@@ -586,7 +589,7 @@ sessionStorage.getItem('chave');</code></pre>
                     &nbsp;&nbsp;<span class="attr">z-index</span>: <span class="val">60</span>;<br>
                     &nbsp;&nbsp;<span class="attr">display</span>: <span class="val">flex</span>; <span class="attr">align-items</span>: <span class="val">center</span>;<br>
                     &nbsp;&nbsp;<span class="attr">justify-content</span>: <span class="val">center</span>;<br>
-                    &nbsp;&nbsp;<span class="attr">transition</span>: <span class="val">background 0.2s</span>, <span class="val">transform 0.2s</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">transition</span>: <span class="val">background 0.2s</span>, <span class="val">transform 0.2s</span>, <span class="val">opacity 0.2s</span>;<br>
                     }<br><br>
                     <span class="tag">.btn-voltar-topo:hover</span> {<br>
                     &nbsp;&nbsp;<span class="attr">background</span>: <span class="val">#065f46</span>;<br>
@@ -595,6 +598,10 @@ sessionStorage.getItem('chave');</code></pre>
                     <span class="tag">.btn-voltar-topo:focus-visible</span> {<br>
                     &nbsp;&nbsp;<span class="attr">outline</span>: <span class="val">3px solid #10b981</span>;<br>
                     &nbsp;&nbsp;<span class="attr">outline-offset</span>: <span class="val">3px</span>;<br>
+                    }<br><br>
+                    <span class="tag">.btn-voltar-topo.escondendo</span> {<br>
+                    &nbsp;&nbsp;<span class="attr">opacity</span>: <span class="val">0</span>;<br>
+                    &nbsp;&nbsp;<span class="attr">pointer-events</span>: <span class="val">none</span>;<br>
                     }
                 </div>
             </div>
@@ -609,7 +616,7 @@ sessionStorage.getItem('chave');</code></pre>
             <div class="code-window">
                 <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div><span style="margin-left:12px;color:#94a3b8;font-size:13px;">perfil.js</span></div>
                 <div class="code-content code-content--compact" style="font-size: 14px;">
-                    <span class="keyword" style="color: #c084fc;">var</span> anoSpan = document.getElementById(<span class="val">'rodape-ano'</span>);<br><br>
+                    <span class="keyword" style="color: #c084fc;">let</span> anoSpan = document.getElementById(<span class="val">'rodape-ano'</span>);<br><br>
                     <span class="keyword" style="color: #c084fc;">if</span> (anoSpan) {<br>
                     &nbsp;&nbsp;anoSpan.textContent = String(<span class="keyword" style="color: #c084fc;">new</span> Date().getFullYear());<br>
                     }
@@ -636,13 +643,16 @@ sessionStorage.getItem('chave');</code></pre>
         <div class="code-window">
             <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div><span style="margin-left:12px;color:#94a3b8;font-size:13px;">perfil.js (trecho)</span></div>
             <div class="code-content code-content--compact" style="font-size: 12px; line-height: 1.45;">
-                <span class="keyword" style="color: #c084fc;">var</span> btnTopo = document.getElementById(<span class="val">'btn-voltar-topo'</span>);<br>
-                <span class="keyword" style="color: #c084fc;">var</span> alvoTopo = document.getElementById(<span class="val">'topo'</span>);<br><br>
+                <span class="keyword" style="color: #c084fc;">let</span> btnTopo = document.getElementById(<span class="val">'btn-voltar-topo'</span>);<br>
+                <span class="keyword" style="color: #c084fc;">let</span> alvoTopo = document.getElementById(<span class="val">'topo'</span>);<br><br>
                 <span class="keyword" style="color: #c084fc;">if</span> (btnTopo && alvoTopo) {<br>
                 &nbsp;&nbsp;<span class="keyword" style="color: #c084fc;">function</span> atualizaBotaoTopo() {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword" style="color: #c084fc;">var</span> scrollou = window.scrollY > <span class="val">300</span>;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;btnTopo.hidden = !scrollou;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;btnTopo.setAttribute(<span class="val">'aria-hidden'</span>, scrollou ? <span class="val">'false'</span> : <span class="val">'true'</span>);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword" style="color: #c084fc;">let</span> scrollou = window.scrollY &gt; <span class="val">100</span>;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword" style="color: #c084fc;">if</span> (scrollou) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btnTopo.classList.remove(<span class="val">'escondendo'</span>);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;} <span class="keyword" style="color: #c084fc;">else</span> {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btnTopo.classList.add(<span class="val">'escondendo'</span>);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
                 &nbsp;&nbsp;}<br>
                 &nbsp;&nbsp;atualizaBotaoTopo();<br>
                 &nbsp;&nbsp;window.addEventListener(<span class="val">'scroll'</span>, atualizaBotaoTopo, { passive: <span class="val">true</span> });<br><br>
@@ -662,7 +672,7 @@ sessionStorage.getItem('chave');</code></pre>
         <div class="code-window">
             <div class="code-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div><span style="margin-left:12px;color:#94a3b8;font-size:13px;">perfil.js (trecho)</span></div>
             <div class="code-content code-content--compact" style="font-size: 12px; line-height: 1.45;">
-                <span class="keyword" style="color: #c084fc;">var</span> msgVisita = document.getElementById(<span class="val">'msg-visita'</span>);<br><br>
+                <span class="keyword" style="color: #c084fc;">let</span> msgVisita = document.getElementById(<span class="val">'msg-visita'</span>);<br><br>
                 <span class="keyword" style="color: #c084fc;">if</span> (msgVisita) {<br>
                 &nbsp;&nbsp;<span class="keyword" style="color: #c084fc;">try</span> {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword" style="color: #c084fc;">if</span> (!sessionStorage.getItem(<span class="val">'perfilVisitou'</span>)) {<br>

@@ -5,10 +5,10 @@
 (function () {
   'use strict';
 
-  var btnTopo = document.getElementById('btn-voltar-topo');
-  var alvoTopo = document.getElementById('topo');
-  var anoSpan = document.getElementById('rodape-ano');
-  var msgVisita = document.getElementById('msg-visita');
+  let btnTopo = document.getElementById('btn-voltar-topo');
+  let alvoTopo = document.getElementById('topo');
+  let anoSpan = document.getElementById('rodape-ano');
+  let msgVisita = document.getElementById('msg-visita');
 
   if (anoSpan) {
     anoSpan.textContent = String(new Date().getFullYear());
@@ -30,9 +30,12 @@
 
   if (btnTopo && alvoTopo) {
     function atualizaBotaoTopo() {
-      var scrollou = window.scrollY > 300;
-      btnTopo.hidden = !scrollou;
-      btnTopo.setAttribute('aria-hidden', scrollou ? 'false' : 'true');
+      let scrollou = window.scrollY > 100;
+      if (scrollou) {
+        btnTopo.classList.remove('escondendo');
+      } else {
+        btnTopo.classList.add('escondendo');
+      }
     }
 
     atualizaBotaoTopo();
